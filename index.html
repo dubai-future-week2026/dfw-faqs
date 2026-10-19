@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai Future Week 2026 FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f3f4f6;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #1f2937;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-main-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #111827;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Individual FAQ box */
+        details {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* The clickable question */
+        summary {
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            color: #374151;
+            list-style: none; /* Hides default triangle icon */
+            position: relative;
+            outline: none;
+            border-radius: 8px;
+        }
+
+        /* Hide default triangle in WebKit browsers */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Custom + Icon */
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #6b7280;
+            font-weight: 400;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Change icon to '-' when open */
+        details[open] summary::after {
+            content: '−';
+        }
+
+        /* Hidden answer text */
+        .faq-content {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            color: #4b5563;
+            line-height: 1.625;
+            font-size: 1rem;
+            border-top: 1px solid transparent;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        details[open] .faq-content {
+            border-top: 1px solid #e5e7eb;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+        }
+
+        .faq-content p {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-content li {
+            margin-bottom: 0.25rem;
+        }
+
+        .pending-note {
+            font-style: italic;
+            color: #d97706; /* Amber color for review notes */
+            margin-top: 0.5rem;
+        }
+
+        summary:hover {
+            background-color: #f3f4f6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h1 class="faq-main-title">Dubai Future Week (DFW) – FAQs</h1>
+        
+        <!-- Category 1 -->
+        <h2 class="category-title">1. Registration and Access</h2>
+        
+        <details>
+            <summary>Q1. I didn't register. Can I still attend?</summary>
+            <div class="faq-content">
+                <p><strong>For Media Representatives:</strong></p>
+                <ul>
+                    <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
+                    <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance.</li>
+                </ul>
+                <p class="pending-note">Pending confirmation: Media Team contact details and email address to be provided by Khadija or Eman ElShenawi.</p>
+                <p><strong>For General Attendees:</strong></p>
+                <p>Yes, you can register through the official Dubai Future Week registration platform. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q2. The session I want to attend is fully booked. Can an exception be made?</summary>
+            <div class="faq-content">
+                <p>For sessions open to the public, you can download the app, sign up, and register for any sessions with available seats.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q3. Can I transfer my registration to someone else?</summary>
+            <div class="faq-content">
+                <p>No. Registrations are non-transferable and can only be used by the person whose name is registered.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q4. I registered but did not receive a confirmation email. What should I do?</summary>
+            <div class="faq-content">
+                <p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue still persists than we have to check with 360 for alternative solution.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q5. My QR code is not working. What should I do?</summary>
+            <div class="faq-content">
+                <p>If you experience any issues with the QR code, please visit the help desk for assistance. Our team will be happy to troubleshoot the issue and provide the necessary support to resolve it as quickly as possible.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q6. Can I access multiple venues with one registration?</summary>
+            <div class="faq-content">
+                <p>Yes. Dubai Future Week registration provides access to the event venues, subject to the access requirements for specific sessions and areas.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q7. Will on-site registration be available?</summary>
+            <div class="faq-content">
+                <p>Yes, on-site registration is available. However, we recommend registering online in advance for your convenience. This will help you save time, avoid potential queues upon arrival, and ensure a smoother and more enjoyable event experience.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q8. Can I attend any session?</summary>
+            <div class="faq-content">
+                <p>Yes, most sessions are open to the general public. Sessions with restricted access will be marked as “By Invitation Only.”</p>
+                <p class="pending-note">Pending confirmation from Zeina and the Email/Agenda Team: How restricted sessions will be indicated in the final agenda design.</p>
+            </div>
+        </details>
+
+        <!-- Category 2 -->
+        <h2 class="category-title">2. Parking and Transportation</h2>
+
+        <details>
+            <summary>Q9. Where can I park?</summary>
+            <div class="faq-content">
+                <p><strong>For Media Representatives:</strong></p>
+                <p>Media representatives are expected to receive a parking sticker as part of their media kit. One parking sticker will be issued per entity, allowing access to the Museum of the Future B2 parking area. <span class="pending-note">Bader</span></p>
+                
+                <p><strong>For General Attendees:</strong></p>
+                <ul>
+                    <li>You can park at Al Mustaqbal Parking, located opposite the World Trade Centre (WTC). Please follow this Google Maps link for directions.</li>
+                    <li>Free shuttle buses will operate between Al Mustaqbal Parking and Jumeirah Emirates Towers Boulevard, taking you to the event venue and back to the parking area for your convenience.</li>
+                    <li>You can also use the Dubai Metro or other public transportation options for a convenient journey to the event venue.</li>
+                    <li>You can enjoy an [Uber discount] for Dubai Future Week. <span class="pending-note">still checking with them but most probably YES</span></li>
+                    <li>You can also travel by taxi. Taxi pick-up and drop-off points will be available south of the Jumeirah Emirates Towers Boulevard entrance.</li>
+                </ul>
+
+                <p><strong>For Partners:</strong></p>
+                <p>Partners should use the designated valet parking service. <span class="pending-note">How many?</span></p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q10. Is valet parking available?</summary>
+            <div class="faq-content">
+                <p>Yes. Valet parking will be available exclusively for invitees, VIPs, and partners.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q11. Where are the valet parking locations?</summary>
+            <div class="faq-content">
+                <p>Valet parking will be available at the following locations:</p>
+                <ul>
+                    <li>JET Hotel main entrance.</li>
+                    <li>JET Ballroom entrance.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Category 3 -->
+        <h2 class="category-title">3. Event Information and Facilities</h2>
+
+        <details>
+            <summary>Q12. What are the event dates and timings?</summary>
+            <div class="faq-content">
+                <p>Dubai Future Week will take place from 18 to 21 November, from 9:00 AM to 10:00 PM daily, except for the final day (21 November), when the event will conclude at 8:00 PM.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q13. Where can I view the conference agenda?</summary>
+            <div class="faq-content">
+                <p>The conference agenda will be available on the official Dubai Future Week app and website <span class="pending-note">by when? Eman Email sen and waiting for her reply</span></p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q14. Will food and beverages be available?</summary>
+            <div class="faq-content">
+                <p>Yes. Food and beverage options will be available as follows:</p>
+                <ul>
+                    <li>General Attendees: Restaurants located within the District.</li>
+                    <li>Media Representatives: Catering will be available in the Media Lounge.</li>
+                    <li>Speakers: Catering will be available in the Speakers' Lounge.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q15. Can I take photos or videos during the event?</summary>
+            <div class="faq-content">
+                <p>Yes. Photography and videography are permitted during the event.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q16. Will there be security screening?</summary>
+            <div class="faq-content">
+                <p>Yes. All attendees will be subject to security screening before entering the event venues.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q17. Can I visit the Museum of the Future and attend Dubai Future Week on the same day?</summary>
+            <div class="faq-content">
+                <p>The Museum of the Future will be closed to regular visitors during Dubai Future Week. Only the Auditorium will be accessible as part of the event.</p>
+            </div>
+        </details>
+
+        <!-- Category 4 -->
+        <h2 class="category-title">4. Badges and Registration Details</h2>
+
+        <details>
+            <summary>Q18. I entered incorrect information during registration. How can I update my details?</summary>
+            <div class="faq-content">
+                <p>You may update your details directly at the registration kiosk. However, any updates or changes to the registration information must be verified and confirmed by the Help Desk.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q19. What should I do if I lose my badge or access pass?</summary>
+            <div class="faq-content">
+                <p>If you lose your badge or access pass, please approach the Help Desk. Our team will assist in cancelling the lost badge and issuing a replacement.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q20. Can I collect my badge in advance?</summary>
+            <div class="faq-content">
+                <p>Yes, you can collect your badge starting November 5 at the Registration Hub located at Emirates Towers.</p>
+            </div>
+        </details>
+
+        <!-- Category 5 -->
+        <h2 class="category-title">5. Customer Support and Assistance</h2>
+
+        <details>
+            <summary>Q21. What should I do if I lose an item during the event?</summary>
+            <div class="faq-content">
+                <p>Guests can contact the Security Team for assistance with lost and found items. <span class="pending-note">Majid/Security</span></p>
+                <p class="pending-note">Pending confirmation: Security contact details and the lost and found procedure.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Q22. Who can I contact if I have a complaint?</summary>
+            <div class="faq-content">
+                <p>Guests can contact the Customer Care Team through the designated Dubai Future Week contact channels.</p>
+                <p>Contact number: 800 2071</p>
+            </div>
+        </details>
+
+    </div>
+
+</body>
+</html>

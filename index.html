@@ -1,345 +1,688 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dubai Future Week 2026 FAQ</title>
+    <title>Dubai Future Week (DFW 2026) - FAQs</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for English & Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --font-en: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-ar: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f3f4f6;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('background.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #1f2937;
-    padding: 2rem 1rem;
-    min-height: 100vh;
+            font-family: var(--font-en);
+            background-color: #0f0728;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(120, 50, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(50, 100, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(rgba(15, 7, 40, 0.85), rgba(15, 7, 40, 0.92)),
+                url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Arabic Mode Styling */
+        html[dir="rtl"] body {
+            font-family: var(--font-ar);
         }
 
-        .faq-main-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            color: #111827;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #11092a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b2d68;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5b479d;
         }
 
-        .category-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.5rem;
+        /* Banner Styling */
+        .dfw-banner {
+            background: rgba(26, 16, 56, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
-        /* Individual FAQ box */
-        details {
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: all 0.2s ease-in-out;
-        }
-
-        /* The clickable question */
-        summary {
-            font-weight: 600;
-            font-size: 1.125rem;
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            color: #374151;
-            list-style: none; /* Hides default triangle icon */
-            position: relative;
-            outline: none;
-            border-radius: 8px;
-        }
-
-        /* Hide default triangle in WebKit browsers */
-        summary::-webkit-details-marker {
+        /* Accordion Animations */
+        details summary::-webkit-details-marker {
             display: none;
         }
 
-        /* Custom + Icon */
-        summary::after {
-            content: '+';
-            position: absolute;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: #6b7280;
-            font-weight: 400;
-            transition: transform 0.2s ease-in-out;
+        details {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Change icon to '-' when open */
-        details[open] summary::after {
-            content: '−';
+        details[open] {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(120, 50, 255, 0.3);
         }
 
-        /* Hidden answer text */
+        details summary .icon-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary .icon-toggle {
+            transform: rotate(45deg);
+        }
+
         .faq-content {
-            padding: 0 1.5rem 1.25rem 1.5rem;
-            color: #4b5563;
-            line-height: 1.625;
-            font-size: 1rem;
-            border-top: 1px solid transparent;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        details[open] .faq-content {
-            border-top: 1px solid #e5e7eb;
-            margin-top: 0.5rem;
-            padding-top: 1rem;
-        }
-
-        .faq-content p {
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-content ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-content li {
-            margin-bottom: 0.25rem;
-        }
-
-        .pending-note {
-            font-style: italic;
-            color: #d97706; /* Amber color for review notes */
-            margin-top: 0.5rem;
-        }
-
-        summary:hover {
-            background-color: #f3f4f6;
+            animation: fadeIn 0.3s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
+            from { opacity: 0; transform: translateY(-6px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Flag Icons */
+        .flag-uae {
+            background-image: url('https://flagcdn.com/w40/ae.png');
+        }
+        .flag-uk {
+            background-image: url('https://flagcdn.com/w40/gb.png');
+        }
+
+        .pending-note {
+            background: rgba(217, 119, 6, 0.15);
+            border-inline-start: 3px solid #f59e0b;
+            color: #fcd34d;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
-<body>
+<body class="p-3 md:p-6 lg:p-10 flex flex-col items-center">
 
-    <div class="faq-container">
-        <h1 class="faq-main-title">Dubai Future Week (DFW 2026) – FAQs</h1>
-        
-        <!-- Category 1 -->
-        <h2 class="category-title">1. Registration and Access</h2>
-        
-        <details>
-            <summary>Q1. I didn't register. Can I still attend?</summary>
-            <div class="faq-content">
-                <p><strong>For Media Representatives:</strong></p>
-                <ul>
-                    <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
-                    <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance.</li>
-                </ul>
-                <p class="pending-note">Pending confirmation: Media Team contact details and email address to be provided by Khadija or Eman ElShenawi.</p>
-                <p><strong>For General Attendees:</strong></p>
-                <p>Yes, you can register through the official Dubai Future Week registration platform. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
+    <!-- TOP NAV BANNER -->
+    <header class="w-full max-w-5xl mb-8 sticky top-4 z-50">
+        <div class="dfw-banner rounded-full px-4 py-2.5 sm:px-6 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 transition-all">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="text-xl sm:text-2xl font-black tracking-wider text-white flex items-center">
+                        DF<span class="inline-block mx-0.5 px-1.5 py-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 text-black text-xs font-bold rounded-full transform -rotate-6">O</span>W26
+                    </span>
+                </a>
             </div>
-        </details>
 
-        <details>
-            <summary>Q2. The session I want to attend is fully booked. Can an exception be made?</summary>
-            <div class="faq-content">
-                <p>If a session is fully booked, no additional seats can be accommodated. However, please keep an eye on the Dubai Future Week app, as any cancellations will be reflected in the app and the seats will become available for registration.</p>
+            <!-- Banner Navigation Links -->
+            <nav class="flex items-center gap-2 sm:gap-6">
+                <!-- FAQ Badge Tag inside Banner -->
+                <div class="flex items-center gap-2 bg-white/10 text-white text-xs sm:text-sm font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 shadow-inner">
+                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="bannerFaqText">FAQs</span>
+                </div>
+            </nav>
+
+            <!-- Language Switcher Button -->
+            <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 active:scale-95 text-white font-medium text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all border border-white/10 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                <span id="langFlag" class="w-5 h-3.5 bg-cover bg-center rounded-sm flag-uae inline-block shadow-sm"></span>
+                <span id="langLabel">العربية</span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="w-full max-w-4xl space-y-6">
+
+        <!-- HEADER TITLE & SEARCH -->
+        <div class="text-center space-y-4 pt-2 pb-4">
+            <h1 id="mainTitle" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
+                Dubai Future Week (DFW 2026) – FAQs
+            </h1>
+            <p id="mainSubtitle" class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+                Find answers to common questions regarding registration, venue access, parking, agendas, and customer support.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="relative max-w-xl mx-auto pt-2">
+                <input type="text" id="searchInput" onkeyup="filterFAQs()" placeholder="Search FAQs..." class="w-full px-5 py-3.5 pl-11 pr-11 bg-slate-900/80 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-md shadow-lg text-sm sm:text-base transition-all">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none ltr-icon">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
             </div>
-        </details>
+        </div>
 
-        <details>
-            <summary>Q3. Can I transfer my registration to someone else?</summary>
-            <div class="faq-content">
-                <p>No. Registrations are non-transferable and can only be used by the person whose name is registered.</p>
-            </div>
-        </details>
+        <!-- FAQ ACCORDIONS CONTAINER -->
+        <div id="faqCategories" class="space-y-8">
+            <!-- Dynamic JavaScript content renders here -->
+        </div>
 
-        <details>
-            <summary>Q4. I registered but did not receive a confirmation email. What should I do?</summary>
-            <div class="faq-content">
-                <p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Mouayad.aljamee@aimedialab.ae" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none;">here</a>.</p>
-        </details>
+        <!-- NO RESULTS PLACEHOLDER -->
+        <div id="noResults" class="hidden text-center py-12 bg-white/5 rounded-2xl border border-white/10">
+            <svg class="w-12 h-12 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p id="noResultsText" class="text-gray-300 text-lg font-medium">No questions found matching your search.</p>
+        </div>
 
-        <details>
-            <summary>Q5. My QR code is not working. What should I do?</summary>
-            <div class="faq-content">
-                <p>If you experience any issues with the QR code, please visit the help desk for assistance. Our team will be happy to troubleshoot the issue and provide the necessary support to resolve it as quickly as possible.</p>
-            </div>
-        </details>
+    </main>
 
-        <details>
-            <summary>Q6. Can I access multiple venues with one registration?</summary>
-            <div class="faq-content">
-                <p>Yes. Dubai Future Week registration provides access to the event venues, subject to the access requirements for specific sessions and areas.</p>
-            </div>
-        </details>
+    <!-- FOOTER -->
+    <footer class="mt-16 text-center text-xs text-gray-400 space-y-2 border-t border-white/10 pt-6 w-full max-w-4xl">
+        <p>&copy; 2026 Dubai Future Foundation. All rights reserved.</p>
+        <p><a href="tel:8002071" class="text-purple-400 hover:underline">Contact Center: 800 2071</a></p>
+    </footer>
 
-        <details>
-            <summary>Q7. Will on-site registration be available?</summary>
-            <div class="faq-content">
-                <p>Yes, on-site registration is available. However, we recommend registering online in advance for your convenience. This will help you save time, avoid potential queues upon arrival, and ensure a smoother and more enjoyable event experience.</p>
-            </div>
-        </details>
+    <!-- JAVASCRIPT DATA & LOGIC -->
+    <script>
+        // Language State
+        let currentLang = 'en'; // 'en' or 'ar'
 
-        <details>
-            <summary>Q8. Can I attend any session?</summary>
-            <div class="faq-content">
-                <p>Yes, most sessions are open to the general public. Sessions with restricted access will be marked as “By Invitation Only.”</p>
-                <p class="pending-note">Pending confirmation from Zeina and the Email/Agenda Team: How restricted sessions will be indicated in the final agenda design.</p>
-            </div>
-        </details>
+        // FAQ Data Object (Bilingual)
+        const faqData = [
+            {
+                category: {
+                    en: "1. Registration and Access",
+                    ar: "١. التسجيل والدخول"
+                },
+                items: [
+                    {
+                        q: {
+                            en: "Q1. I didn't register. Can I still attend?",
+                            ar: "س١. لم أقم بالتسجيل مسبقاً، هل يمكنني الحضور؟"
+                        },
+                        a: {
+                            en: `
+                                <p class="font-semibold text-white mb-1">For Media Representatives:</p>
+                                <ul class="list-disc pl-5 rtl:pr-5 mb-3 space-y-1">
+                                    <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
+                                    <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance.</li>
+                                </ul>
+                                <div class="pending-note">Pending confirmation: Media Team contact details and email address to be provided by Khadija or Eman ElShenawi.</div>
+                                <p class="font-semibold text-white mt-3 mb-1">For General Attendees:</p>
+                                <p>Yes, you can register through the official Dubai Future Week registration platform. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
+                            `,
+                            ar: `
+                                <p class="font-semibold text-white mb-1">لممثلي وسائل الإعلام:</p>
+                                <ul class="list-disc pr-5 mb-3 space-y-1">
+                                    <li>إذا تم تقديم الطلب خلال أسبوعين من موعد الفعالية، فلن نتمكن من استضافة ممثل وسائل الإعلام.</li>
+                                    <li>إذا تم تقديم الطلب قبل أكثر من أسبوعين من الفعالية، يجب توجيه الضيف إلى الفريق الإعلامي للتسجيل والمساعدة.</li>
+                                </ul>
+                                <div class="pending-note">قيد التأكيد: تفاصيل الاتصال بالفريق الإعلامي والبريد الإلكتروني سيتم تزويدها من قبل خديجة أو إيمان الشناوي.</div>
+                                <p class="font-semibold text-white mt-3 mb-1">للجمهور والمشاركين العموم:</p>
+                                <p>نعم، يمكنك التسجيل عبر منصة التسجيل الرسمية لأسبوع دبي للمستقبل. بمجرد إتمام التسجيل بنجاح، ستتلقى بريداً إلكترونياً للتأكيد مع رمز QR للدخول.</p>
+                            `
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q2. The session I want to attend is fully booked. Can an exception be made?",
+                            ar: "س٢. الجلسة التي أرغب بحضورها مكتملة العدد، هل يمكن استثنائي؟"
+                        },
+                        a: {
+                            en: "<p>If a session is fully booked, no additional seats can be accommodated. However, please keep an eye on the Dubai Future Week app, as any cancellations will be reflected in the app and the seats will become available for registration.</p>",
+                            ar: "<p>إذا كانت الجلسة مكتملة العدد، فلا يمكن إضافة مقاعد إضافية. ومع ذلك، يرجى متابعة تطبيق أسبوع دبي للمستقبل، حيث سيتم تحديث أي إلغاءات فوراً وإتاحة المقاعد للتسجيل مجدداً.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q3. Can I transfer my registration to someone else?",
+                            ar: "س٣. هل يمكنني نقل تسجيلي إلى شخص آخر؟"
+                        },
+                        a: {
+                            en: "<p>No. Registrations are non-transferable and can only be used by the person whose name is registered.</p>",
+                            ar: "<p>لا، التسجيل شخصي وغير قابل للتحويل، ويمكن استخدام بطاقة الدخول فقط من قبل الشخص المدوّن اسمه في التسجيل.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q4. I registered but did not receive a confirmation email. What should I do?",
+                            ar: "س٤. قمت بالتسجيل ولكن لم أستلم بريد التأكيد، ماذا أفعل؟"
+                        },
+                        a: {
+                            en: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Mouayad.aljamee@aimedialab.ae" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline font-medium">here</a>.</p>`,
+                            ar: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam/Junk) أولاً. إذا لم تجد الرسالة، يرجى إعادة عملية التسجيل مع التأكد من إدخال البريد الإلكتروني بشكل صحيح. في حال استمرار المشكلة، يمكنك التواصل مع الفريق المختص <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Mouayad.aljamee@aimedialab.ae" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline font-medium">من هنا</a>.</p>`
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q5. My QR code is not working. What should I do?",
+                            ar: "س٥. رمز الاستجابة السريعة (QR Code) لا يعمل، ماذا أفعل؟"
+                        },
+                        a: {
+                            en: "<p>If you experience any issues with the QR code, please visit the help desk for assistance. Our team will be happy to troubleshoot the issue and provide the necessary support to resolve it as quickly as possible.</p>",
+                            ar: "<p>إذا واجهت أي مشكلة في رمز QR، يرجى زيارة مكتب المساعدة والاستعلامات في الموقع. سيسعد فريقنا بتقديم الدعم وحل المشكلة بسرعة.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q6. Can I access multiple venues with one registration?",
+                            ar: "س٦. هل يتيح لي التسجيل الواحد دخول جميع مواقع الفعالية؟"
+                        },
+                        a: {
+                            en: "<p>Yes. Dubai Future Week registration provides access to the event venues, subject to the access requirements for specific sessions and areas.</p>",
+                            ar: "<p>نعم، يتيح لك التسجيل دخول مختلف مواقع ومرافق أسبوع دبي للمستقبل، مع مراعاة متطلبات الدخول الخاصة ببعض الجلسات والمناطق المحددة.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q7. Will on-site registration be available?",
+                            ar: "س٧. هل سيتوفر التسجيل المباشر في مقر الفعالية؟"
+                        },
+                        a: {
+                            en: "<p>Yes, on-site registration is available. However, we recommend registering online in advance for your convenience. This will help you save time, avoid potential queues upon arrival, and ensure a smoother and more enjoyable event experience.</p>",
+                            ar: "<p>نعم، التسجيل المباشر متوفر في الموقع. ومع ذلك، نوصي بالتسجيل المسبق عبر الإنترنت لراحتكم ولتوفير الوقت وتجنب طوابير الانتظار وضمان تجربة سلسة.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q8. Can I attend any session?",
+                            ar: "س٨. هل يمكنني حضور أي جلسة؟"
+                        },
+                        a: {
+                            en: `
+                                <p>Yes, most sessions are open to the general public. Sessions with restricted access will be marked as “By Invitation Only.”</p>
+                                <div class="pending-note">Pending confirmation from Zeina and the Email/Agenda Team: How restricted sessions will be indicated in the final agenda design.</div>
+                            `,
+                            ar: `
+                                <p>نعم، معظم الجلسات مفتوحة للجمهور. أما الجلسات ذات الدخول المحدود فسيتم تحديدها بعبارة "دعوة خاصة فقط".</p>
+                                <div class="pending-note">قيد التأكيد من زينة وفريق الأجندة: كيفية توضيح الجلسات الخاصة في تصميم الأجندة النهائي.</div>
+                            `
+                        }
+                    }
+                ]
+            },
+            {
+                category: {
+                    en: "2. Parking and Transportation",
+                    ar: "٢. المواقف والمواصلات"
+                },
+                items: [
+                    {
+                        q: {
+                            en: "Q9. Where can I park?",
+                            ar: "س٩. أين يمكنني إيقاف سيارتي؟"
+                        },
+                        a: {
+                            en: `
+                                <p class="font-semibold text-white mb-1">For Media Representatives:</p>
+                                <p class="mb-2">Media representatives are expected to receive a parking sticker as part of their media kit. One parking sticker will be issued per entity, allowing access to the Museum of the Future B2 parking area. <span class="pending-note inline-block">Bader</span></p>
+                                
+                                <p class="font-semibold text-white mt-3 mb-1">For General Attendees:</p>
+                                <ul class="list-disc pl-5 rtl:pr-5 space-y-1 mb-2">
+                                    <li>You can park at Al Mustaqbal Parking, located opposite the World Trade Centre (WTC).</li>
+                                    <li>Free shuttle buses will operate between Al Mustaqbal Parking and Jumeirah Emirates Towers Boulevard.</li>
+                                    <li>You can also use the Dubai Metro or public transport.</li>
+                                    <li>Enjoy an Uber discount code for Dubai Future Week. <span class="pending-note inline-block">Checking confirmation</span></li>
+                                    <li>Taxis are available south of the Jumeirah Emirates Towers Boulevard entrance.</li>
+                                </ul>
 
-        <!-- Category 2 -->
-        <h2 class="category-title">2. Parking and Transportation</h2>
+                                <p class="font-semibold text-white mt-3 mb-1">For Partners:</p>
+                                <p>Partners should use the designated valet parking service. <span class="pending-note inline-block">Quota TBD</span></p>
+                            `,
+                            ar: `
+                                <p class="font-semibold text-white mb-1">لممثلي وسائل الإعلام:</p>
+                                <p class="mb-2">يحصل ممثلو الإعلام على ملصق موقف ضمن الحقيبة الإعلامية (ملصق واحد لكل جهة إعلامية)، مما يتيح استخدام مواقف B2 في متحف المستقبل. <span class="pending-note inline-block">بدر</span></p>
+                                
+                                <p class="font-semibold text-white mt-3 mb-1">للجمهور والمشاركين:</p>
+                                <ul class="list-disc pr-5 space-y-1 mb-2">
+                                    <li>يمكنك إيقاف سيارتك في مواقف المستقبل المقابلة لمركز دبي التجاري العالمي.</li>
+                                    <li>ستتوفر حافلات نقل مجانية بين مواقف المستقبل وبوليفارد أبراج الإمارات.</li>
+                                    <li>يمكن استخدام مترو دبي أو وسائل النقل العام.</li>
+                                    <li>خصم خاص لرحلات Uber أثناء أسبوع دبي للمستقبل. <span class="pending-note inline-block">قيد التأكيد</span></li>
+                                    <li>تتوفر مواقف سيارات الأجرة جنوب مدخل بوليفارد أبراج الإمارات.</li>
+                                </ul>
 
-        <details>
-            <summary>Q9. Where can I park?</summary>
-            <div class="faq-content">
-                <p><strong>For Media Representatives:</strong></p>
-                <p>Media representatives are expected to receive a parking sticker as part of their media kit. One parking sticker will be issued per entity, allowing access to the Museum of the Future B2 parking area. <span class="pending-note">Bader</span></p>
-                
-                <p><strong>For General Attendees:</strong></p>
-                <ul>
-                    <li>You can park at Al Mustaqbal Parking, located opposite the World Trade Centre (WTC). Please follow this Google Maps link for directions.</li>
-                    <li>Free shuttle buses will operate between Al Mustaqbal Parking and Jumeirah Emirates Towers Boulevard, taking you to the event venue and back to the parking area for your convenience.</li>
-                    <li>You can also use the Dubai Metro or other public transportation options for a convenient journey to the event venue.</li>
-                    <li>You can enjoy an [Uber discount] for Dubai Future Week. <span class="pending-note">still checking with them but most probably YES</span></li>
-                    <li>You can also travel by taxi. Taxi pick-up and drop-off points will be available south of the Jumeirah Emirates Towers Boulevard entrance.</li>
-                </ul>
+                                <p class="font-semibold text-white mt-3 mb-1">للشركاء:</p>
+                                <p>يمكن للشركاء استخدام خدمة صف السيارات (Valet) المخصصة لهم.</p>
+                            `
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q10. Is valet parking available?",
+                            ar: "س١٠. هل تتوفر خدمة صف السيارات (Valet Parking)؟"
+                        },
+                        a: {
+                            en: "<p>Yes. Valet parking will be available exclusively for invitees, VIPs, and partners.</p>",
+                            ar: "<p>نعم، تتوفر خدمة صف السيارات حصرياً للمدعوين وكبار الشخصيات والشركاء.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q11. Where are the valet parking locations?",
+                            ar: "س١١. أين تقع نقاط خدمة صف السيارات؟"
+                        },
+                        a: {
+                            en: `
+                                <p>Valet parking will be available at the following locations:</p>
+                                <ul class="list-disc pl-5 rtl:pr-5 mt-2 space-y-1">
+                                    <li>JET Hotel main entrance.</li>
+                                    <li>JET Ballroom entrance.</li>
+                                </ul>
+                            `,
+                            ar: `
+                                <p>تتوفر الخدمة في المواقع التالية:</p>
+                                <ul class="list-disc pr-5 mt-2 space-y-1">
+                                    <li>المدخل الرئيسي لفندق أبراج الإمارات.</li>
+                                    <li>مدخل قاعة قصر أبراج الإمارات (Ballroom).</li>
+                                </ul>
+                            `
+                        }
+                    }
+                ]
+            },
+            {
+                category: {
+                    en: "3. Event Information and Facilities",
+                    ar: "٣. معلومات الفعالية والمرافق"
+                },
+                items: [
+                    {
+                        q: {
+                            en: "Q12. What are the event dates and timings?",
+                            ar: "س١٢. ما هي تواريخ وأوقات الفعالية؟"
+                        },
+                        a: {
+                            en: "<p>Dubai Future Week will take place from 18 to 21 November, from 9:00 AM to 10:00 PM daily, except for the final day (21 November), when the event will conclude at 8:00 PM.</p>",
+                            ar: "<p>يقام أسبوع دبي للمستقبل من 18 إلى 21 نوفمبر، من الساعة 9:00 صباحاً حتى 10:00 مساءً يومياً، باستثناء اليوم الاخير (21 نوفمبر) حيث تنتهي الفعالية في الساعة 8:00 مساءً.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q13. Where can I view the conference agenda?",
+                            ar: "س١٣. أين يمكنني الاطلاع على جدول أعمال الفعالية؟"
+                        },
+                        a: {
+                            en: `<p>The conference agenda will be available on the official Dubai Future Week app and website. <span class="pending-note inline-block">Publishing date confirmation pending with Eman</span></p>`,
+                            ar: `<p>سيكون جدول الأعمال متوفراً عبر التطبيق الرسمي والموقع الإلكتروني لأسبوع دبي للمستقبل. <span class="pending-note inline-block">موعد النشر قيد التأكيد مع إيمان</span></p>`
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q14. Will food and beverages be available?",
+                            ar: "س١٤. هل تتوفر خيارات الأطعمة والمشروبات؟"
+                        },
+                        a: {
+                            en: `
+                                <p>Yes. Food and beverage options will be available as follows:</p>
+                                <ul class="list-disc pl-5 rtl:pr-5 mt-2 space-y-1">
+                                    <li><strong>General Attendees:</strong> Restaurants located within the District.</li>
+                                    <li><strong>Media Representatives:</strong> Catering available in the Media Lounge.</li>
+                                    <li><strong>Speakers:</strong> Catering available in the Speakers' Lounge.</li>
+                                </ul>
+                            `,
+                            ar: `
+                                <p>نعم، تتوفر خيارات الأطعمة والمشروبات كالتالي:</p>
+                                <ul class="list-disc pr-5 mt-2 space-y-1">
+                                    <li><strong>الجمهور والمشاركون:</strong> المطاعم والمقاهي المنتشرة في المنطقة.</li>
+                                    <li><strong>ممثلو الإعلام:</strong> الضيافة متوفرة في المجلس الإعلامي (Media Lounge).</li>
+                                    <li><strong>المتحدثون:</strong> الضيافة متوفرة في مجلس المتحدثين (Speakers' Lounge).</li>
+                                </ul>
+                            `
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q15. Can I take photos or videos during the event?",
+                            ar: "س١٥. هل يُسمح بالتصوير خلال الفعالية؟"
+                        },
+                        a: {
+                            en: "<p>Yes. Photography and videography are permitted during the event.</p>",
+                            ar: "<p>نعم، التصوير الفوتوغرافي والفيديو مسموح به خلال الفعالية.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q16. Will there be security screening?",
+                            ar: "س١٦. هل توجد إجراءات تفتيش أمني؟"
+                        },
+                        a: {
+                            en: "<p>Yes. All attendees will be subject to security screening before entering the event venues.</p>",
+                            ar: "<p>نعم، يخضع جميع الزوار والمشاركين للتفتيش الأمني قبل دخول مواقع الفعالية.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q17. Can I visit the Museum of the Future and attend DFW on the same day?",
+                            ar: "س١٧. هل يمكنني زيارة متحف المستقبل وحضور أسبوع دبي للمستقبل في نفس اليوم؟"
+                        },
+                        a: {
+                            en: "<p>The Museum of the Future will be closed to regular visitors during Dubai Future Week. Only the Auditorium will be accessible as part of the event.</p>",
+                            ar: "<p>سيكون متحف المستقبل مغلقاً أمام الزيارات العامة الاعتيادية خلال أسبوع دبي للمستقبل، وسيكون مسرح المتحف فقط متاحاً للجلسات المدرجة ضمن الفعالية.</p>"
+                        }
+                    }
+                ]
+            },
+            {
+                category: {
+                    en: "4. Badges and Registration Details",
+                    ar: "٤. البطاقات وتفاصيل التسجيل"
+                },
+                items: [
+                    {
+                        q: {
+                            en: "Q18. I entered incorrect information during registration. How can I update my details?",
+                            ar: "س١٨. أدخلت معلومات غير صحيحة أثناء التسجيل، كيف أحدث بياناتي؟"
+                        },
+                        a: {
+                            en: "<p>You may update your details directly at the registration kiosk. However, any updates or changes to the registration information must be verified and confirmed by the Help Desk.</p>",
+                            ar: "<p>يمكنك تحديث بياناتك مباشرة عبر أجهزة التسجيل الذكية (Kiosk)، بشرط اعتماد التحديثات وتأكيدها من قبل مكتب المساعدة والدعم.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q19. What should I do if I lose my badge or access pass?",
+                            ar: "س١٩. ماذا أفعل إذا فقدت بطاقة الدخول الخاصة بي؟"
+                        },
+                        a: {
+                            en: "<p>If you lose your badge or access pass, please approach the Help Desk. Our team will assist in cancelling the lost badge and issuing a replacement.</p>",
+                            ar: "<p>في حال فقدان البطاقة، يرجى التوجه فوراً إلى مكتب المساعدة، حيث سيقوم الفريق بإلغاء البطاقة المفقودة وإصدار بديل لها.</p>"
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q20. Can I collect my badge in advance?",
+                            ar: "س٢٠. هل يمكنني استلام بطاقة الدخول مسبقاً؟"
+                        },
+                        a: {
+                            en: `<p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" class="text-purple-400 font-semibold hover:underline">Emirates Towers</a>.</p>`,
+                            ar: `<p>نعم، يمكنك استلام بطاقتك اعتباراً من 5 نوفمبر من مركز التسجيل الرئيسي في <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" class="text-purple-400 font-semibold hover:underline">أبراج الإمارات</a>.</p>`
+                        }
+                    }
+                ]
+            },
+            {
+                category: {
+                    en: "5. Customer Support and Assistance",
+                    ar: "٥. الدعم والمساعدة"
+                },
+                items: [
+                    {
+                        q: {
+                            en: "Q21. What should I do if I lose an item during the event?",
+                            ar: "س٢١. ماذا أفعل إذا فقدت غرضاً شخصياً أثناء الفعالية؟"
+                        },
+                        a: {
+                            en: `
+                                <p>Guests can contact the Security Team for assistance with lost and found items. <span class="pending-note inline-block">Majid / Security</span></p>
+                                <div class="pending-note">Pending confirmation: Lost and found office exact location and procedure.</div>
+                            `,
+                            ar: `
+                                <p>يمكن للضيوف مراجعة فريق الأمن للمساعدة في المفقودات والمعثورات. <span class="pending-note inline-block">ماجد / فريق الأمن</span></p>
+                                <div class="pending-note">قيد التأكيد: الموقع الدقيق لمكتب المفقودات والإجراءات.</div>
+                            `
+                        }
+                    },
+                    {
+                        q: {
+                            en: "Q22. Who can I contact if I have a complaint or inquiry?",
+                            ar: "س٢٢. من يمكنني الاتصال به في حال وجود استفسار أو شكوى؟"
+                        },
+                        a: {
+                            en: `
+                                <p>Guests can contact the Customer Care Team through the official Dubai Future Week channels.</p>
+                                <p class="mt-2 font-semibold">Toll Free: <a href="tel:8002071" class="text-purple-400 hover:underline">800 2071</a></p>
+                            `,
+                            ar: `
+                                <p>يمكنكم التواصل مع فريق خدمة المتعاملين من خلال قنوات أسبوع دبي للمستقبل المعتمدة.</p>
+                                <p class="mt-2 font-semibold">الرقم المجاني: <a href="tel:8002071" class="text-purple-400 hover:underline">800 2071</a></p>
+                            `
+                        }
+                    }
+                ]
+            }
+        ];
 
-                <p><strong>For Partners:</strong></p>
-                <p>Partners should use the designated valet parking service. <span class="pending-note">How many?</span></p>
-            </div>
-        </details>
+        // RENDER FAQS FUNCTION
+        function renderFAQs() {
+            const container = document.getElementById('faqCategories');
+            container.innerHTML = '';
 
-        <details>
-            <summary>Q10. Is valet parking available?</summary>
-            <div class="faq-content">
-                <p>Yes. Valet parking will be available exclusively for invitees, VIPs, and partners.</p>
-            </div>
-        </details>
+            faqData.forEach((cat, catIdx) => {
+                const catElement = document.createElement('div');
+                catElement.className = 'faq-category-block space-y-3';
 
-        <details>
-            <summary>Q11. Where are the valet parking locations?</summary>
-            <div class="faq-content">
-                <p>Valet parking will be available at the following locations:</p>
-                <ul>
-                    <li>JET Hotel main entrance.</li>
-                    <li>JET Ballroom entrance.</li>
-                </ul>
-            </div>
-        </details>
+                const categoryTitle = document.createElement('h2');
+                categoryTitle.className = 'text-xl sm:text-2xl font-bold text-purple-200 border-b border-white/10 pb-2 mb-4 flex items-center gap-2';
+                categoryTitle.innerHTML = `<span class="w-2 h-2 rounded-full bg-purple-500 inline-block"></span> ${cat.category[currentLang]}`;
 
-        <!-- Category 3 -->
-        <h2 class="category-title">3. Event Information and Facilities</h2>
+                const itemsList = document.createElement('div');
+                itemsList.className = 'space-y-3';
 
-        <details>
-            <summary>Q12. What are the event dates and timings?</summary>
-            <div class="faq-content">
-                <p>Dubai Future Week will take place from 18 to 21 November, from 9:00 AM to 10:00 PM daily, except for the final day (21 November), when the event will conclude at 8:00 PM.</p>
-            </div>
-        </details>
+                cat.items.forEach((item, itemIdx) => {
+                    const details = document.createElement('details');
+                    details.className = 'rounded-2xl overflow-hidden transition-all duration-200 faq-item';
 
-        <details>
-            <summary>Q13. Where can I view the conference agenda?</summary>
-            <div class="faq-content">
-                <p>The conference agenda will be available on the official Dubai Future Week app and website <span class="pending-note">by when? Eman Email sen and waiting for her reply</span></p>
-            </div>
-        </details>
+                    const summary = document.createElement('summary');
+                    summary.className = 'px-5 py-4 cursor-pointer text-white font-semibold text-base sm:text-lg flex justify-between items-center select-none hover:bg-white/5';
+                    
+                    summary.innerHTML = `
+                        <span class="faq-question pr-4 rtl:pl-4 rtl:pr-0">${item.q[currentLang]}</span>
+                        <span class="icon-toggle flex-shrink-0 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-purple-300 font-light text-xl">+</span>
+                    `;
 
-        <details>
-            <summary>Q14. Will food and beverages be available?</summary>
-            <div class="faq-content">
-                <p>Yes. Food and beverage options will be available as follows:</p>
-                <ul>
-                    <li>General Attendees: Restaurants located within the District.</li>
-                    <li>Media Representatives: Catering will be available in the Media Lounge.</li>
-                    <li>Speakers: Catering will be available in the Speakers' Lounge.</li>
-                </ul>
-            </div>
-        </details>
+                    const content = document.createElement('div');
+                    content.className = 'faq-content px-5 pb-5 pt-1 text-gray-300 text-sm sm:text-base border-t border-white/5 space-y-2';
+                    content.innerHTML = item.a[currentLang];
 
-        <details>
-            <summary>Q15. Can I take photos or videos during the event?</summary>
-            <div class="faq-content">
-                <p>Yes. Photography and videography are permitted during the event.</p>
-            </div>
-        </details>
+                    details.appendChild(summary);
+                    details.appendChild(content);
+                    itemsList.appendChild(details);
+                });
 
-        <details>
-            <summary>Q16. Will there be security screening?</summary>
-            <div class="faq-content">
-                <p>Yes. All attendees will be subject to security screening before entering the event venues.</p>
-            </div>
-        </details>
+                catElement.appendChild(categoryTitle);
+                catElement.appendChild(itemsList);
+                container.appendChild(catElement);
+            });
+        }
 
-        <details>
-            <summary>Q17. Can I visit the Museum of the Future and attend Dubai Future Week on the same day?</summary>
-            <div class="faq-content">
-                <p>The Museum of the Future will be closed to regular visitors during Dubai Future Week. Only the Auditorium will be accessible as part of the event.</p>
-            </div>
-        </details>
+        // LANGUAGE TOGGLE FUNCTION
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            
+            const langFlag = document.getElementById('langFlag');
+            const langLabel = document.getElementById('langLabel');
+            const bannerFaqText = document.getElementById('bannerFaqText');
+            const mainTitle = document.getElementById('mainTitle');
+            const mainSubtitle = document.getElementById('mainSubtitle');
+            const searchInput = document.getElementById('searchInput');
+            const noResultsText = document.getElementById('noResultsText');
 
-        <!-- Category 4 -->
-        <h2 class="category-title">4. Badges and Registration Details</h2>
+            if (currentLang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                langFlag.className = 'w-5 h-3.5 bg-cover bg-center rounded-sm flag-uk inline-block shadow-sm';
+                langLabel.textContent = 'English';
+                bannerFaqText.textContent = 'الأسئلة الشائعة';
+                mainTitle.textContent = 'أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة';
+                mainSubtitle.textContent = 'إليك الإجابات الشاملة حول التسجيل، التصاريح، المواقف، أجندة الفعالية والدعم الفني.';
+                searchInput.placeholder = 'ابحث في الأسئلة الشائعة...';
+                noResultsText.textContent = 'لم يتم العثور على أسئلة تطابق بحثك.';
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                langFlag.className = 'w-5 h-3.5 bg-cover bg-center rounded-sm flag-uae inline-block shadow-sm';
+                langLabel.textContent = 'العربية';
+                bannerFaqText.textContent = 'FAQs';
+                mainTitle.textContent = 'Dubai Future Week (DFW 2026) – FAQs';
+                mainSubtitle.textContent = 'Find answers to common questions regarding registration, venue access, parking, agendas, and customer support.';
+                searchInput.placeholder = 'Search FAQs...';
+                noResultsText.textContent = 'No questions found matching your search.';
+            }
 
-        <details>
-            <summary>Q18. I entered incorrect information during registration. How can I update my details?</summary>
-            <div class="faq-content">
-                <p>You may update your details directly at the registration kiosk. However, any updates or changes to the registration information must be verified and confirmed by the Help Desk.</p>
-            </div>
-        </details>
+            renderFAQs();
+            filterFAQs();
+        }
 
-        <details>
-            <summary>Q19. What should I do if I lose my badge or access pass?</summary>
-            <div class="faq-content">
-                <p>If you lose your badge or access pass, please approach the Help Desk. Our team will assist in cancelling the lost badge and issuing a replacement.</p>
-            </div>
-        </details>
+        // SEARCH / FILTER FUNCTION
+        function filterFAQs() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const categories = document.querySelectorAll('.faq-category-block');
+            let totalVisible = 0;
 
-        <details>
-            <summary>Q20. Can I collect my badge in advance?</summary>
-            <div class="faq-content">
-                <p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none; font-weight: 600;">Emirates Towers</a>.</p>
-            </div>
-        </details>
+            categories.forEach(catBlock => {
+                const items = catBlock.querySelectorAll('.faq-item');
+                let catVisibleCount = 0;
 
-        <!-- Category 5 -->
-        <h2 class="category-title">5. Customer Support and Assistance</h2>
+                items.forEach(item => {
+                    const qText = item.querySelector('.faq-question').textContent.toLowerCase();
+                    const aText = item.querySelector('.faq-content').textContent.toLowerCase();
 
-        <details>
-            <summary>Q21. What should I do if I lose an item during the event?</summary>
-            <div class="faq-content">
-                <p>Guests can contact the Security Team for assistance with lost and found items. <span class="pending-note">Majid/Security</span></p>
-                <p class="pending-note">Pending confirmation: Security contact details and the lost and found procedure.</p>
-            </div>
-        </details>
+                    if (qText.includes(query) || aText.includes(query)) {
+                        item.classList.remove('hidden');
+                        catVisibleCount++;
+                        if (query.length > 1) {
+                            item.setAttribute('open', 'true');
+                        }
+                    } else {
+                        item.classList.add('hidden');
+                        item.removeAttribute('open');
+                    }
+                });
 
-        <details>
-            <summary>Q22. Who can I contact if I have a complaint?</summary>
-            <div class="faq-content">
-                <p>Guests can contact the Customer Care Team through the designated Dubai Future Week contact channels.</p>
-                <p>Contact number: <a href="tel:8002071" style="color: #2563eb; text-decoration: none; font-weight: 600;">800 2071</a></p>
-            </div>
-        </details>
+                if (catVisibleCount > 0) {
+                    catBlock.classList.remove('hidden');
+                    totalVisible += catVisibleCount;
+                } else {
+                    catBlock.classList.add('hidden');
+                }
+            });
 
-    </div>
+            const noResults = document.getElementById('noResults');
+            if (totalVisible === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
 
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            renderFAQs();
+        });
+    </script>
 </body>
 </html>

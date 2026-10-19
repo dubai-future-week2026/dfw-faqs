@@ -1,3 +1,6 @@
+Here is your complete, updated `index.html` file with the subtitle text completely removed in both English and Arabic:
+
+```html
 <!DOCTYPE html>
 <html lang="en" id="html-root">
 <head>
@@ -209,14 +212,11 @@
             </button>
         </div>
 
-        <!-- 2. SEARCH & SUBTITLE SECTION -->
+        <!-- 2. SEARCH SECTION -->
         <div class="text-center text-white mb-10 mt-6 px-4">
-            <h1 id="page-title" class="text-3xl md:text-5xl font-black mb-3 tracking-tight drop-shadow-md">
+            <h1 id="page-title" class="text-3xl md:text-5xl font-black mb-6 tracking-tight drop-shadow-md">
                 Dubai Future Week (DFW 2026) – FAQs
             </h1>
-            <p id="page-subtitle" class="text-lg text-white/80 max-w-xl mx-auto mb-6">
-                Find answers to common questions regarding registration, venue access, parking, agendas, and customer support.
-            </p>
             
             <!-- Search bar -->
             <div class="relative max-w-md mx-auto">
@@ -229,22 +229,28 @@
 
         <!-- 3. FAQS LIST -->
         <div id="faq-list">
-            <!-- Category & Content will be generated via JavaScript -->
+            <!-- Category & Content generated via JavaScript -->
         </div>
 
     </div>
 
-    <!-- JS Logic for Language switcher, Dynamic search, Accordions, Smooth transitions -->
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 3rem; padding-bottom: 2rem; color: #e5e7eb; font-size: 0.875rem;">
+        <p style="margin-bottom: 0.5rem;" id="footer-copy">Dubai Future Foundation © 2025. All rights reserved.</p>
+        <p><span id="footer-contact">Contact</span>: <a href="tel:8002071" style="color: #2563eb; font-weight: 600; text-decoration: none;">800 2071</a></p>
+    </footer>
+
+    <!-- JS Logic -->
     <script>
-        // Full Bilingual Content Dataset
         const faqsData = {
             en: {
                 tabTitle: "Dubai Future Week 2026 FAQ",
                 pageTitle: "Dubai Future Week (DFW 2026) – FAQs",
-                
                 searchPlaceholder: "Search questions...",
                 languageLabel: "العربية",
                 faqTag: "FAQs",
+                footerCopy: "Dubai Future Foundation © 2025. All rights reserved.",
+                footerContact: "Contact",
                 categories: [
                     {
                         title: "1. Registration and Access",
@@ -276,7 +282,7 @@
                             {
                                 id: "q4",
                                 question: "Q4. I registered but did not receive a confirmation email. What should I do?",
-                                answer: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #4f46e5; font-weight: 600; text-decoration: none;">here</a>.</p>
+                                answer: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 600; text-decoration: none;">here</a>.</p>`
                             },
                             {
                                 id: "q5",
@@ -402,7 +408,7 @@
                             {
                                 id: "q20",
                                 question: "Q20. Can I collect my badge in advance?",
-                                answer: `<p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; font-weight: 600; text-decoration: none;">Emirates Towers</a>.</p>`
+                                answer: `<p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600; text-decoration: none;">Emirates Towers</a>.</p>`
                             }
                         ]
                     },
@@ -422,7 +428,7 @@
                                 question: "Q22. Who can I contact if I have a complaint?",
                                 answer: `
                                     <p>Guests can contact the Customer Care Team through the designated Dubai Future Week contact channels.</p>
-                                    <p>Contact number: <a href="tel:8002071" style="color: #4f46e5; font-weight: 700; text-decoration: none;">800 2071</a></p>
+                                    <p>Contact number: <a href="tel:8002071" style="color: #2563eb; font-weight: 700; text-decoration: none;">800 2071</a></p>
                                 `
                             }
                         ]
@@ -432,10 +438,11 @@
             ar: {
                 tabTitle: "أسبوع دبي للمستقبل 2026 - الأسئلة الشائعة",
                 pageTitle: "أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة",
-               
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
                 faqTag: "الأسئلة الشائعة",
+                footerCopy: "مؤسسة دبي للمستقبل © 2025. جميع الحقوق محفوظة.",
+                footerContact: "للتواصل",
                 categories: [
                     {
                         title: "١. التسجيل والدخول",
@@ -467,7 +474,7 @@
                             {
                                 id: "q4",
                                 question: "س٤. لقد سجلت ولكني لم أتلق رسالة تأكيد إلكترونية. ماذا علي أن أفعل؟",
-                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Mouayad.aljamee@aimedialab.ae" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; font-weight: 600; text-decoration: none;">من هنا</a>.</p>`
+                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 600; text-decoration: none;">من هنا</a>.</p>`
                             },
                             {
                                 id: "q5",
@@ -593,7 +600,7 @@
                             {
                                 id: "q20",
                                 question: "س٢٠. هل يمكنني استلام بطاقة الدخول الخاصة بي مسبقاً؟",
-                                answer: `<p>نعم، يمكنك استلام بطاقتك اعتباراً من ٥ نوفمبر من مركز التسجيل الواقع في <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; font-weight: 600; text-decoration: none;">أبراج الإمارات</a>.</p>`
+                                answer: `<p>نعم، يمكنك استلام بطاقتك اعتباراً من ٥ نوفمبر من مركز التسجيل الواقع في <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600; text-decoration: none;">أبراج الإمارات</a>.</p>`
                             }
                         ]
                     },
@@ -613,7 +620,7 @@
                                 question: "س٢٢. بمن يمكنني الاتصال لتقديم شكوى أو استفسار؟",
                                 answer: `
                                     <p>يمكن للضيوف التواصل مع فريق خدمة العملاء من خلال قنوات الاتصال المخصصة لأسبوع دبي للمستقبل.</p>
-                                    <p>رقم الاتصال: <a href="tel:8002071" style="color: #4f46e5; font-weight: 700; text-decoration: none;">800 2071</a></p>
+                                    <p>رقم الاتصال: <a href="tel:8002071" style="color: #2563eb; font-weight: 700; text-decoration: none;">800 2071</a></p>
                                 `
                             }
                         ]
@@ -622,15 +629,12 @@
             }
         };
 
-        // State Tracking
         let currentLang = 'en';
 
-        // Initialize App
         function initApp() {
             renderLang();
         }
 
-        // Toggles State and DOM attributes
         function toggleLanguage() {
             currentLang = (currentLang === 'en') ? 'ar' : 'en';
             
@@ -644,42 +648,36 @@
             }
 
             renderLang();
-            // Refilter search on switch if input has value
             searchFaqs();
         }
 
-        // Render Page Strings and FAQS
         function renderLang() {
             const data = faqsData[currentLang];
             
-            // Set dynamic metadata & Static Labels
             document.getElementById('tab-title').textContent = data.tabTitle;
             document.getElementById('page-title').textContent = data.pageTitle;
-            document.getElementById('page-subtitle').textContent = data.pageSubtitle;
             document.getElementById('language-label').textContent = data.languageLabel;
             document.getElementById('faq-tag').textContent = data.faqTag;
+            document.getElementById('footer-copy').textContent = data.footerCopy;
+            document.getElementById('footer-contact').textContent = data.footerContact;
             
             const searchInput = document.getElementById('faq-search');
             searchInput.placeholder = data.searchPlaceholder;
 
-            // Generate structural components
             const faqListContainer = document.getElementById('faq-list');
-            faqListContainer.innerHTML = ''; // reset
+            faqListContainer.innerHTML = '';
 
             data.categories.forEach((cat, catIdx) => {
-                // Category Header element
                 const catHeader = document.createElement('h2');
                 catHeader.className = 'category-title text-white border-b-2 border-white/20 pb-2 mt-10 mb-4 font-bold text-2xl drop-shadow-md';
                 catHeader.id = `cat-${catIdx}`;
                 catHeader.textContent = cat.title;
                 faqListContainer.appendChild(catHeader);
 
-                // Group Div wrapper for easy matching/filtering
                 const catGroup = document.createElement('div');
                 catGroup.className = 'category-group';
                 catGroup.id = `group-${catIdx}`;
 
-                // FAQ Accordions inside group
                 cat.items.forEach((item) => {
                     const detailEl = document.createElement('details');
                     detailEl.id = item.id;
@@ -702,7 +700,6 @@
             });
         }
 
-        // Realtime Client-side Search and Filtering
         function searchFaqs() {
             const val = document.getElementById('faq-search').value.toLowerCase().trim();
             const data = faqsData[currentLang];
@@ -714,14 +711,14 @@
 
                 cat.items.forEach((item) => {
                     const detailEl = document.getElementById(item.id);
-                    // Match question or HTML answer string
+                    if (!detailEl) return;
+
                     const questionMatch = item.question.toLowerCase().includes(val);
                     const answerMatch = item.answer.toLowerCase().includes(val);
 
                     if (questionMatch || answerMatch) {
                         detailEl.classList.remove('hidden');
                         visibleCount++;
-                        // Auto-expand items during active searches
                         if (val.length > 1) {
                             detailEl.setAttribute('open', '');
                         } else {
@@ -732,7 +729,6 @@
                     }
                 });
 
-                // Visibility logic for Category Headers based on matches inside them
                 if (visibleCount > 0) {
                     headerEl.classList.remove('hidden');
                     groupEl.classList.remove('hidden');
@@ -743,8 +739,9 @@
             });
         }
 
-        // Self Ignition
         window.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
 </html>
+
+```

@@ -8,7 +8,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap');
 
-        /* Default Font family is English-based, overridden on rtl */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f3f4f6;
@@ -23,7 +22,6 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* RTL Specific Arabic font override */
         [dir="rtl"] {
             font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -44,7 +42,6 @@
             gap: 0.5rem;
         }
 
-        /* Individual FAQ box */
         details {
             background-color: rgba(255, 255, 255, 0.98);
             border: 1px solid rgba(229, 231, 235, 0.8);
@@ -59,26 +56,23 @@
             transform: translateY(-1px);
         }
 
-        /* The clickable question */
         summary {
             font-weight: 600;
             font-size: 1.125rem;
             padding: 1.25rem 1.5rem;
             cursor: pointer;
             color: #1e1b4b;
-            list-style: none; /* Hides default triangle icon */
+            list-style: none;
             position: relative;
             outline: none;
             border-radius: 12px;
             transition: background-color 0.2s ease;
         }
 
-        /* Hide default triangle in WebKit browsers */
         summary::-webkit-details-marker {
             display: none;
         }
 
-        /* Custom Icon placing based on layout direction LTR */
         #html-root:not([dir="rtl"]) summary::after {
             content: '+';
             position: absolute;
@@ -95,7 +89,6 @@
             content: '−';
         }
 
-        /* Custom Icon placing based on layout direction RTL */
         [dir="rtl"] summary::after {
             content: '+';
             position: absolute;
@@ -112,7 +105,6 @@
             content: '−';
         }
 
-        /* Hidden answer text */
         .faq-content {
             padding: 0 1.5rem 1.25rem 1.5rem;
             color: #4b5563;
@@ -151,7 +143,7 @@
 
         .pending-note {
             font-style: italic;
-            color: #d97706; /* Amber color for review notes */
+            color: #d97706;
             margin-top: 0.5rem;
             background-color: #fffbeb;
             padding: 0.5rem 0.75rem;
@@ -173,7 +165,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Custom toggle design in the banner */
         .lang-btn {
             background-color: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -188,38 +179,29 @@
 <body class="pb-16">
 
     <div class="faq-container">
-        <!-- 1. HEADER BANNER SECTION -->
+        <!-- HEADER BANNER SECTION -->
         <div class="rounded-full bg-[#110729]/95 border border-white/10 px-4 py-3 md:px-8 md:py-4 flex flex-wrap items-center justify-between shadow-xl gap-4 backdrop-blur-md mb-8">
-            <!-- Left Branding -->
-            <div class="flex items-center gap-2">
-                <span class="text-white font-bold text-xl md:text-2xl tracking-wide flex items-center">
-                    <!-- Museum of the Future Torus Logo SVG -->
- <!-- Left Branding -->
-<div class="flex items-center">
-    <span class="text-white font-bold text-2xl md:text-3xl tracking-tight flex items-center">DF<svg class="h-6 md:h-7 w-auto inline-block text-white fill-current" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg"><path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/></svg>W26</span>
-</div>
-                </span>
+            <!-- Branding with SVG Torus -->
+            <div class="flex items-center">
+                <span class="text-white font-bold text-2xl md:text-3xl tracking-tight flex items-center">DF<svg class="h-6 md:h-7 w-auto inline-block text-white fill-current" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg"><path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/></svg>W26</span>
             </div>
 
-            <!-- Header Badge FAQs -->
             <div class="hidden sm:flex items-center bg-white/10 px-4 py-1.5 rounded-full text-white/95 text-sm font-semibold border border-white/5">
                 <span id="faq-tag">FAQs</span>
             </div>
 
-            <!-- Right: Interactive Language Toggle (Clickable) -->
             <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-2 px-3.5 py-1.5 rounded-full text-white font-medium text-sm transition-all active:scale-95 cursor-pointer">
                 <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="20" alt="UAE Flag" class="rounded shadow-sm">
                 <span id="language-label" class="font-semibold">العربية</span>
             </button>
         </div>
 
-        <!-- 2. SEARCH SECTION -->
+        <!-- SEARCH SECTION -->
         <div class="text-center text-white mb-10 mt-6 px-4">
             <h1 id="page-title" class="text-3xl md:text-5xl font-black mb-6 tracking-tight drop-shadow-md">
                 Dubai Future Week (DFW 2026) – FAQs
             </h1>
             
-            <!-- Search bar -->
             <div class="relative max-w-md mx-auto">
                 <input type="text" id="faq-search" oninput="searchFaqs()" placeholder="Search questions..." class="w-full bg-white/95 text-[#1e1b4b] rounded-full py-3 px-6 shadow-lg outline-none focus:ring-4 focus:ring-purple-500/50 transition font-medium border border-gray-200">
                 <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 rtl:left-4 rtl:right-auto pointer-events-none">
@@ -228,10 +210,8 @@
             </div>
         </div>
 
-        <!-- 3. FAQS LIST -->
-        <div id="faq-list">
-            <!-- Category & Content generated via JavaScript -->
-        </div>
+        <!-- FAQS LIST CONTAINER -->
+        <div id="faq-list"></div>
 
     </div>
 
@@ -250,25 +230,25 @@
                 searchPlaceholder: "Search questions...",
                 languageLabel: "العربية",
                 faqTag: "FAQs",
-                footerCopy: "Dubai Future Foundation © 2026. All rights reserved.",
+                footerCopy: "Dubai Future Foundation © 2025. All rights reserved.",
                 footerContact: "Contact",
                 categories: [
                     {
                         title: "1. Registration and Access",
                         items: [
-                           {
-    id: "q1",
-    question: "Q1. I didn't register. Can I still attend?",
-    answer: `
-        <p><strong>For Media Representatives:</strong></p>
-        <ul>
-            <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
-            <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance at <a href="mailto:media@dubaifutureweek.com" style="color: inherit; text-decoration: none; font-weight: 600;">media@dubaifutureweek.com</a> or <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: inherit; text-decoration: none; font-weight: 600;">saleem.stas@dubaifuture.gov.ae</a>.</li>
-        </ul>
-        <p><strong>For General Attendees:</strong></p>
-        <p>Yes, you can register through the official Dubai Future Week registration platform. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
-    `
-}
+                            {
+                                id: "q1",
+                                question: "Q1. I didn't register. Can I still attend?",
+                                answer: `
+                                    <p><strong>For Media Representatives:</strong></p>
+                                    <ul>
+                                        <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
+                                        <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance at <a href="mailto:media@dubaifutureweek.com" style="color: inherit; text-decoration: none; font-weight: 600;">media@dubaifutureweek.com</a> or <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: inherit; text-decoration: none; font-weight: 600;">saleem.stas@dubaifuture.gov.ae</a>.</li>
+                                    </ul>
+                                    <p><strong>For General Attendees:</strong></p>
+                                    <p>Yes, you can register through the official Dubai Future Week registration platform. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
+                                `
+                            },
                             {
                                 id: "q2",
                                 question: "Q2. The session I want to attend is fully booked. Can an exception be made?",
@@ -441,7 +421,7 @@
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
                 faqTag: "الأسئلة الشائعة",
-                footerCopy: "مؤسسة دبي للمستقبل © 2026. جميع الحقوق محفوظة.",
+                footerCopy: "مؤسسة دبي للمستقبل © 2025. جميع الحقوق محفوظة.",
                 footerContact: "للتواصل",
                 categories: [
                     {
@@ -454,9 +434,8 @@
                                     <p><strong>لممثلي وسائل الإعلام:</strong></p>
                                     <ul>
                                         <li>إذا تم استلام الطلب خلال أسبوعين من الفعالية، فلن نتمكن من تسجيل ممثل الإعلام.</li>
-                                        <li>إذا تم استلام الطلب قبل أكثر من أسبوعين من الفعالية، فيجب توجيه الضيف إلى الفريق الإعلامي للتسجيل وتقديم المساعدة اللازمة.</li>
+                                        <li>إذا تم استلام الطلب قبل أكثر من أسبوعين من الفعالية، فيجب توجيه الضيف إلى الفريق الإعلامي للتسجيل وتقديم المساعدة اللازمة عبر البريد الإلكتروني <a href="mailto:media@dubaifutureweek.com" style="color: inherit; text-decoration: none; font-weight: 600;">media@dubaifutureweek.com</a> أو <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: inherit; text-decoration: none; font-weight: 600;">saleem.stas@dubaifuture.gov.ae</a>.</li>
                                     </ul>
-                                    <p class="pending-note">قيد التأكيد: سيتم توفير تفاصيل الاتصال والبريد الإلكتروني للفريق الإعلامي من قبل خديجة أو إيمان الشناوي.</p>
                                     <p><strong>للحضور العام:</strong></p>
                                     <p>نعم، يمكنك التسجيل عبر منصة التسجيل الرسمية لأسبوع دبي للمستقبل. بمجرد إتمام التسجيل بنجاح، ستتلقى رسالة تأكيد إلكترونية تحتوي على رمز الاستجابة السريعة (QR Code) الخاص بالدخول.</p>
                                 `

@@ -30,7 +30,6 @@
             font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* NARROWED FAQ CONTAINER */
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
@@ -49,19 +48,20 @@
             gap: 0.5rem;
         }
 
-        /* FIXED PILL CONTAINERS (NO MORPHING / NO SHAPE RESIZING) */
+        /* SPHERICAL PILL CONTAINERS WITH PURE VERTICAL UNROLL */
         details {
             background-color: rgba(255, 255, 255, 0.82);
             border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 1rem; /* Fixed rounded rectangle so it never widens or changes shape */
+            border-radius: 9999px; /* Fully spherical when closed */
             margin-bottom: 0.85rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             backdrop-filter: blur(10px);
-            transition: background-color 0.3s ease, box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+            transition: border-radius 0.35s ease, background-color 0.3s ease, box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
             overflow: hidden;
         }
 
         details[open] {
+            border-radius: 1.5rem; /* Curved card when open */
             background-color: rgba(255, 255, 255, 0.90);
         }
 
@@ -81,6 +81,7 @@
             outline: none;
             transition: background-color 0.2s ease;
             user-select: none;
+            border-radius: 9999px;
         }
 
         summary::-webkit-details-marker {
@@ -122,7 +123,7 @@
             color: #110729;
         }
 
-        /* SMOOTH ACCORDION VERTICAL SLIDE DOWN */
+        /* PURE VERTICAL EXPANSION DOWNWARD */
         .faq-wrapper {
             display: grid;
             grid-template-rows: 0fr;
@@ -211,38 +212,66 @@
 </head>
 <body>
 
-    <!-- STICKY HEADER BANNER -->
-    <div class="sticky top-4 z-40 max-w-[1350px] w-[96%] mx-auto rounded-3xl md:rounded-full bg-[#110729]/45 border border-white/20 px-4 py-3 md:px-10 md:py-3 flex flex-wrap items-center justify-between shadow-2xl gap-3 backdrop-blur-md mb-8">
-        <!-- Branding with SVG Torus -->
-        <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
-            <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[1px]">
-                <span>DF</span>
-                <svg class="h-5 md:h-6 w-auto inline-block text-white fill-current" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/>
-                </svg>
-                <span>W26</span>
-            </span>
-        </a>
+    <!-- STICKY HEADER BANNER WITH MOBILE HAMBURGER MENU -->
+    <div class="sticky top-4 z-40 max-w-[1350px] w-[96%] mx-auto rounded-full bg-[#110729]/60 border border-white/20 px-4 py-3 md:px-10 md:py-3 shadow-2xl backdrop-blur-md mb-8 transition-all">
+        <div class="flex items-center justify-between w-full">
+            <!-- Branding with SVG Torus -->
+            <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
+                <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[1px]">
+                    <span>DF</span>
+                    <svg class="h-5 md:h-6 w-auto inline-block text-white fill-current" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/>
+                    </svg>
+                    <span>W26</span>
+                </span>
+            </a>
 
-        <!-- Navigation Links -->
-        <div class="flex items-center justify-center flex-wrap gap-3 md:gap-8 text-white text-xs md:text-sm font-semibold">
-            <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
-            <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
-            <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 text-white text-sm font-semibold">
+                <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
+                <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
+                <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
+            </div>
+
+            <!-- Desktop Language & Register Action Buttons -->
+            <div class="hidden md:flex items-center gap-3 shrink-0">
+                <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-medium text-sm transition-all active:scale-95 cursor-pointer">
+                    <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="18" alt="UAE Flag" class="rounded shadow-sm">
+                    <span id="language-label" class="font-semibold">العربية</span>
+                </button>
+
+                <!-- Yellow Register Button -->
+                <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-sm flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+                    <span>Register</span>
+                    <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-4 h-4 text-[10px]">↗</span>
+                </a>
+            </div>
+
+            <!-- Mobile 3 Stripes Hamburger Button -->
+            <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation" class="md:hidden text-white focus:outline-none p-2 rounded-full hover:bg-white/10 transition">
+                <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
 
-        <!-- Language & Register Action Buttons -->
-        <div class="flex items-center gap-2 md:gap-3 shrink-0">
-            <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white font-medium text-xs md:text-sm transition-all active:scale-95 cursor-pointer">
-                <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="18" alt="UAE Flag" class="rounded shadow-sm">
-                <span id="language-label" class="font-semibold">العربية</span>
-            </button>
+        <!-- Mobile Dropdown Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col gap-3 pt-4 pb-2 border-t border-white/15 mt-3 text-white text-sm font-semibold">
+            <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors py-1">What's Happening</a>
+            <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors py-1">Programme</a>
+            <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors py-1">500 Future Minds</a>
+            
+            <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white font-medium text-xs transition-all active:scale-95 cursor-pointer">
+                    <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="16" alt="UAE Flag" class="rounded shadow-sm">
+                    <span id="mobile-language-label" class="font-semibold">العربية</span>
+                </button>
 
-            <!-- Yellow Register Button -->
-            <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs md:text-sm flex items-center gap-1.5 transition-all shadow-md active:scale-95">
-                <span>Register</span>
-                <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-4 h-4 text-[10px]">↗</span>
-            </a>
+                <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+                    <span>Register</span>
+                    <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-3.5 h-3.5 text-[9px]">↗</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -305,7 +334,7 @@
                 footerContact: "Contact",
                 categories: [
                     {
-                        title: "1. Registration and Access",
+                        title: "Registration and Access", // Number removed
                         items: [
                             {
                                 id: "q1",
@@ -361,7 +390,7 @@
                         ]
                     },
                     {
-                        title: "2. Parking and Transportation",
+                        title: "Parking and Transportation", // Number removed
                         items: [
                             {
                                 id: "q9",
@@ -402,7 +431,7 @@
                         ]
                     },
                     {
-                        title: "3. Event Information and Facilities",
+                        title: "Event Information and Facilities", // Number removed
                         items: [
                             {
                                 id: "q12",
@@ -444,7 +473,7 @@
                         ]
                     },
                     {
-                        title: "4. Badges and Registration Details",
+                        title: "Badges and Registration Details", // Number removed
                         items: [
                             {
                                 id: "q18",
@@ -464,7 +493,7 @@
                         ]
                     },
                     {
-                        title: "5. Customer Support and Assistance",
+                        title: "Customer Support and Assistance", // Number removed
                         items: [
                             {
                                 id: "q21",
@@ -494,7 +523,7 @@
                 footerContact: "للتواصل",
                 categories: [
                     {
-                        title: "١. التسجيل والدخول",
+                        title: "التسجيل والدخول", // Number removed
                         items: [
                             {
                                 id: "q1",
@@ -550,7 +579,7 @@
                         ]
                     },
                     {
-                        title: "٢. مواقف السيارات والنقل",
+                        title: "مواقف السيارات والنقل", // Number removed
                         items: [
                             {
                                 id: "q9",
@@ -591,7 +620,7 @@
                         ]
                     },
                     {
-                        title: "٣. معلومات الفعالية والمرافق والخدمات",
+                        title: "معلومات الفعالية والمرافق والخدمات", // Number removed
                         items: [
                             {
                                 id: "q12",
@@ -633,7 +662,7 @@
                         ]
                     },
                     {
-                        title: "٤. بطاقات الدخول وتفاصيل التسجيل",
+                        title: "بطاقات الدخول وتفاصيل التسجيل", // Number removed
                         items: [
                             {
                                 id: "q18",
@@ -653,7 +682,7 @@
                         ]
                     },
                     {
-                        title: "٥. دعم العملاء والمساعدة",
+                        title: "دعم العملاء والمساعدة", // Number removed
                         items: [
                             {
                                 id: "q21",
@@ -683,6 +712,12 @@
             renderLang();
         }
 
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
         function toggleLanguage() {
             currentLang = (currentLang === 'en') ? 'ar' : 'en';
             
@@ -705,6 +740,7 @@
             document.getElementById('tab-title').textContent = data.tabTitle;
             document.getElementById('page-title').textContent = data.pageTitle;
             document.getElementById('language-label').textContent = data.languageLabel;
+            document.getElementById('mobile-language-label').textContent = data.languageLabel;
             document.getElementById('footer-contact').textContent = data.footerContact;
             
             const searchInput = document.getElementById('faq-search');

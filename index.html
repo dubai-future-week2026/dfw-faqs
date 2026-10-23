@@ -49,21 +49,25 @@
             gap: 0.5rem;
         }
 
-        /* SPHERICAL / ROUNDED QUESTION PILLS WITH 25% MORE TRANSPARENCY */
+        /* ULTRA-SMOOTH SPHERICAL QUESTION PILLS */
         details {
-            background-color: rgba(255, 255, 255, 0.80); /* 25% more transparent */
+            background-color: rgba(255, 255, 255, 0.80);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 9999px;
             margin-bottom: 0.85rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             backdrop-filter: blur(8px);
-            transition: all 0.25s ease-in-out;
+            transition: border-radius 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                        background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.25s ease-in-out, 
+                        transform 0.25s ease-in-out;
             overflow: hidden;
+            will-change: transform, border-radius;
         }
 
         details[open] {
             border-radius: 1.5rem;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.88);
         }
 
         details:hover {
@@ -82,26 +86,29 @@
             outline: none;
             border-radius: 9999px;
             transition: background-color 0.2s ease;
+            user-select: none;
         }
 
         summary::-webkit-details-marker {
             display: none;
         }
 
+        /* SMOOTH ROTATING ICON */
         #html-root:not([dir="rtl"]) summary::after {
             content: '+';
             position: absolute;
             right: 1.75rem;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) rotate(0deg);
             font-size: 1.4rem;
             color: #6b7280;
             font-weight: 400;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
         }
 
         #html-root:not([dir="rtl"]) details[open] summary::after {
-            content: '−';
+            transform: translateY(-50%) rotate(45deg);
+            color: #110729;
         }
 
         [dir="rtl"] summary::after {
@@ -109,30 +116,44 @@
             position: absolute;
             left: 1.75rem;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) rotate(0deg);
             font-size: 1.4rem;
             color: #6b7280;
             font-weight: 400;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
         }
 
         [dir="rtl"] details[open] summary::after {
-            content: '−';
+            transform: translateY(-50%) rotate(45deg);
+            color: #110729;
+        }
+
+        /* SMOOTH HEIGHT & FADE EXPANSION ANIMATION */
+        .faq-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        details[open] .faq-wrapper {
+            grid-template-rows: 1fr;
         }
 
         .faq-content {
-            padding: 0 1.75rem 1.25rem 1.75rem;
+            overflow: hidden;
+            padding: 0 1.75rem;
             color: #374151;
             line-height: 1.625;
             font-size: 0.95rem;
-            border-top: 1px solid transparent;
-            animation: fadeIn 0.3s ease-in-out;
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         details[open] .faq-content {
+            opacity: 1;
+            padding: 0.5rem 1.75rem 1.25rem 1.75rem;
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             margin-top: 0.25rem;
-            padding-top: 1rem;
         }
 
         .faq-content p {
@@ -175,11 +196,6 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .lang-btn {
             background-color: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -201,8 +217,8 @@
 </head>
 <body>
 
-    <!-- 30% MORE TRANSPARENT STICKY HEADER BANNER -->
-    <div class="sticky top-4 z-40 max-w-[1350px] w-[96%] mx-auto rounded-full bg-[#110729]/45 border border-white/20 px-6 py-2.5 md:px-10 md:py-3 flex items-center justify-between shadow-2xl gap-3 backdrop-blur-md mb-8">
+    <!-- STICKY HEADER BANNER -->
+    <div class="sticky top-4 z-40 max-w-[1350px] w-[96%] mx-auto rounded-3xl md:rounded-full bg-[#110729]/45 border border-white/20 px-4 py-3 md:px-10 md:py-3 flex flex-wrap items-center justify-between shadow-2xl gap-3 backdrop-blur-md mb-8">
         <!-- Branding with SVG Torus -->
         <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
             <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[1px]">
@@ -215,7 +231,7 @@
         </a>
 
         <!-- Navigation Links -->
-        <div class="hidden lg:flex items-center gap-10 text-white text-sm font-semibold">
+        <div class="flex items-center justify-center flex-wrap gap-3 md:gap-8 text-white text-xs md:text-sm font-semibold">
             <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
             <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
             <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
@@ -223,7 +239,7 @@
 
         <!-- Language & Register Action Buttons -->
         <div class="flex items-center gap-2 md:gap-3 shrink-0">
-            <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-medium text-xs md:text-sm transition-all active:scale-95 cursor-pointer">
+            <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white font-medium text-xs md:text-sm transition-all active:scale-95 cursor-pointer">
                 <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="18" alt="UAE Flag" class="rounded shadow-sm">
                 <span id="language-label" class="font-semibold">العربية</span>
             </button>
@@ -236,7 +252,7 @@
         </div>
     </div>
 
-    <!-- MAIN FAQ AREA (NARROW WIDTH) -->
+    <!-- MAIN FAQ AREA -->
     <div class="faq-container flex-1">
         <!-- SEARCH SECTION -->
         <div class="text-center text-white mb-10 mt-2 px-4">
@@ -287,12 +303,10 @@
     <!-- POP-UP MODAL OVERLAY -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white w-full max-w-4xl h-[85vh] rounded-2xl flex flex-col overflow-hidden shadow-2xl relative">
-            <!-- Modal Header -->
             <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-slate-50">
                 <h3 id="modal-title" class="text-lg font-bold text-[#110729]">Document</h3>
                 <button onclick="closeModal()" class="text-gray-500 hover:text-black font-bold text-2xl px-2 py-1 transition">&times;</button>
             </div>
-            <!-- Modal Content (IFrame) -->
             <div class="flex-1 w-full bg-white relative">
                 <iframe id="modal-iframe" class="w-full h-full border-0" src=""></iframe>
             </div>
@@ -310,7 +324,7 @@
                 footerContact: "Contact",
                 categories: [
                     {
-                        title: " Registration and Access",
+                        title: "1. Registration and Access",
                         items: [
                             {
                                 id: "q1",
@@ -366,7 +380,7 @@
                         ]
                     },
                     {
-                        title: " Parking and Transportation",
+                        title: "2. Parking and Transportation",
                         items: [
                             {
                                 id: "q9",
@@ -407,7 +421,7 @@
                         ]
                     },
                     {
-                        title: " Event Information and Facilities",
+                        title: "3. Event Information and Facilities",
                         items: [
                             {
                                 id: "q12",
@@ -449,7 +463,7 @@
                         ]
                     },
                     {
-                        title: " Badges and Registration Details",
+                        title: "4. Badges and Registration Details",
                         items: [
                             {
                                 id: "q18",
@@ -469,7 +483,7 @@
                         ]
                     },
                     {
-                        title: " Customer Support and Assistance",
+                        title: "5. Customer Support and Assistance",
                         items: [
                             {
                                 id: "q21",
@@ -499,7 +513,7 @@
                 footerContact: "للتواصل",
                 categories: [
                     {
-                        title: " التسجيل والدخول",
+                        title: "١. التسجيل والدخول",
                         items: [
                             {
                                 id: "q1",
@@ -555,7 +569,7 @@
                         ]
                     },
                     {
-                        title: " مواقف السيارات والنقل",
+                        title: "٢. مواقف السيارات والنقل",
                         items: [
                             {
                                 id: "q9",
@@ -596,7 +610,7 @@
                         ]
                     },
                     {
-                        title: " معلومات الفعالية والمرافق والخدمات",
+                        title: "٣. معلومات الفعالية والمرافق والخدمات",
                         items: [
                             {
                                 id: "q12",
@@ -638,7 +652,7 @@
                         ]
                     },
                     {
-                        title: " بطاقات الدخول وتفاصيل التسجيل",
+                        title: "٤. بطاقات الدخول وتفاصيل التسجيل",
                         items: [
                             {
                                 id: "q18",
@@ -658,7 +672,7 @@
                         ]
                     },
                     {
-                        title: " دعم العملاء والمساعدة",
+                        title: "٥. دعم العملاء والمساعدة",
                         items: [
                             {
                                 id: "q21",
@@ -737,12 +751,16 @@
                     summaryEl.className = 'font-semibold cursor-pointer text-[#110729]';
                     summaryEl.textContent = item.question;
 
+                    const wrapperDiv = document.createElement('div');
+                    wrapperDiv.className = 'faq-wrapper';
+
                     const contentDiv = document.createElement('div');
                     contentDiv.className = 'faq-content';
                     contentDiv.innerHTML = item.answer;
 
+                    wrapperDiv.appendChild(contentDiv);
                     detailEl.appendChild(summaryEl);
-                    detailEl.appendChild(contentDiv);
+                    detailEl.appendChild(wrapperDiv);
                     catGroup.appendChild(detailEl);
                 });
 

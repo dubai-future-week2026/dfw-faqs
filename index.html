@@ -49,7 +49,7 @@
             gap: 0.5rem;
         }
 
-        /* FIXED WIDTH PILL CONTAINERS (NO MORPHING / NO WIDENING) */
+        /* FIXED PILL CONTAINERS */
         details {
             background-color: rgba(255, 255, 255, 0.82);
             border: 1px solid rgba(255, 255, 255, 0.35);
@@ -219,21 +219,32 @@
         .mobile-menu-wrapper.open {
             grid-template-rows: 1fr;
         }
+
+        /* SMOOTH SCROLL SHRINK BANNER TRANSITION */
+        .header-top {
+            max-width: 1350px;
+            width: 96%;
+        }
+
+        .header-scrolled {
+            max-width: 950px !important;
+            width: 88% !important;
+        }
     </style>
 </head>
 <body>
 
-    <!-- STICKY HEADER BANNER -->
-    <div id="header-banner" class="sticky top-4 z-40 max-w-[1350px] w-[96%] mx-auto rounded-[2rem] bg-[#110729]/60 border border-white/20 px-5 py-3 md:px-10 md:py-3 shadow-2xl backdrop-blur-md mb-8 transition-all duration-300">
+    <!-- STICKY HEADER BANNER WITH SCROLL SHRINK ANIMATION -->
+    <div id="header-banner" class="sticky top-4 z-40 header-top mx-auto rounded-[2rem] bg-[#110729]/60 border border-white/20 px-5 py-3 md:px-10 md:py-3 shadow-2xl backdrop-blur-md mb-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <div class="flex items-center justify-between w-full">
-            <!-- Branding with SVG Torus -->
+            <!-- Dynamic English / Arabic Branding with SVG Torus -->
             <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
-                <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[1px]">
-                    <span>DF</span>
-                    <svg class="h-5 md:h-6 w-auto inline-block text-white fill-current" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
+                <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[2px]">
+                    <span id="logo-part-left">DF</span>
+                    <svg class="h-5 md:h-6 w-auto inline-block text-white fill-current mx-[2px]" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
                         <path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/>
                     </svg>
-                    <span>W26</span>
+                    <span id="logo-part-right">W26</span>
                 </span>
             </a>
 
@@ -346,6 +357,8 @@
                 pageTitle: "Dubai Future Week (DFW 2026) – FAQs",
                 searchPlaceholder: "Search questions...",
                 languageLabel: "العربية",
+                logoLeft: "DF",
+                logoRight: "W26",
                 navHappening: "What's Happening",
                 navProgramme: "Programme",
                 navMinds: "500 Future Minds",
@@ -539,6 +552,8 @@
                 pageTitle: "أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة",
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
+                logoLeft: "أسبوع",
+                logoRight: "دبي للمستقبل",
                 navHappening: "ماذا يحدث",
                 navProgramme: "البرنامج",
                 navMinds: "منصة مستقبل دبي",
@@ -733,6 +748,19 @@
 
         function initApp() {
             renderLang();
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        /* SINGLE MOVEMENT SCROLL SHRINK LOGIC */
+        function handleScroll() {
+            const header = document.getElementById('header-banner');
+            if (window.scrollY > 50) {
+                header.classList.remove('header-top');
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.add('header-top');
+            }
         }
 
         function toggleMobileMenu() {
@@ -765,6 +793,10 @@
             document.getElementById('mobile-language-label').textContent = data.languageLabel;
             document.getElementById('footer-contact').textContent = data.footerContact;
             
+            // Translate Dynamic Header Logo Parts
+            document.getElementById('logo-part-left').textContent = data.logoLeft;
+            document.getElementById('logo-part-right').textContent = data.logoRight;
+
             // Translate Desktop Navigation Header Links
             document.getElementById('nav-happening').textContent = data.navHappening;
             document.getElementById('nav-programme').textContent = data.navProgramme;

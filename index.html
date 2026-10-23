@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" id="html-root">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='203 0 221 111'%3E%3Cpath fill='%23ffffff' d='M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z'/%3E%3C/svg%3E">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='203 0 221 111'%3E%3Cpath fill='%23ffffff' d='M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z'/%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="tab-title">Dubai Future Week 2026 FAQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -50,7 +53,7 @@
         details {
             background-color: rgba(255, 255, 255, 0.82);
             border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 1.25rem; /* Fixed pill shape */
+            border-radius: 1.25rem;
             margin-bottom: 0.85rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             backdrop-filter: blur(10px);
@@ -236,9 +239,9 @@
 
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center gap-8 text-white text-sm font-semibold">
-                <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
-                <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
-                <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
+                <a href="https://www.dubaifutureweek.com/en/whats-happening" id="nav-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
+                <a href="https://www.dubaifutureweek.com/en/programme" id="nav-programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
+                <a href="https://www.dubaifutureweek.com/en/500-future-minds" id="nav-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
             </div>
 
             <!-- Desktop Language & Register Action Buttons -->
@@ -250,7 +253,7 @@
 
                 <!-- Yellow Register Button -->
                 <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-sm flex items-center gap-1.5 transition-all shadow-md active:scale-95">
-                    <span>Register</span>
+                    <span id="nav-register">Register</span>
                     <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-4 h-4 text-[10px]">↗</span>
                 </a>
             </div>
@@ -267,9 +270,9 @@
         <div id="mobile-menu-wrapper" class="mobile-menu-wrapper md:hidden">
             <div class="overflow-hidden">
                 <div class="flex flex-col gap-4 pt-6 pb-2 text-white text-base font-medium">
-                    <a href="https://www.dubaifutureweek.com/en/whats-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
-                    <a href="https://www.dubaifutureweek.com/en/programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
-                    <a href="https://www.dubaifutureweek.com/en/500-future-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
+                    <a href="https://www.dubaifutureweek.com/en/whats-happening" id="mobile-nav-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
+                    <a href="https://www.dubaifutureweek.com/en/programme" id="mobile-nav-programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
+                    <a href="https://www.dubaifutureweek.com/en/500-future-minds" id="mobile-nav-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
                     
                     <div class="flex items-center justify-between pt-4 border-t border-white/15 mt-1">
                         <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-medium text-xs transition-all active:scale-95 cursor-pointer">
@@ -278,7 +281,7 @@
                         </button>
 
                         <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-95">
-                            <span>Register</span>
+                            <span id="mobile-nav-register">Register</span>
                             <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-3.5 h-3.5 text-[9px]">↗</span>
                         </a>
                     </div>
@@ -343,6 +346,10 @@
                 pageTitle: "Dubai Future Week (DFW 2026) – FAQs",
                 searchPlaceholder: "Search questions...",
                 languageLabel: "العربية",
+                navHappening: "What's Happening",
+                navProgramme: "Programme",
+                navMinds: "500 Future Minds",
+                navRegister: "Register",
                 footerContact: "Contact",
                 categories: [
                     {
@@ -532,6 +539,10 @@
                 pageTitle: "أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة",
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
+                navHappening: "ماذا يحدث",
+                navProgramme: "البرنامج",
+                navMinds: "منصة مستقبل دبي",
+                navRegister: "التسجيل",
                 footerContact: "للتواصل",
                 categories: [
                     {
@@ -754,6 +765,18 @@
             document.getElementById('mobile-language-label').textContent = data.languageLabel;
             document.getElementById('footer-contact').textContent = data.footerContact;
             
+            // Translate Desktop Navigation Header Links
+            document.getElementById('nav-happening').textContent = data.navHappening;
+            document.getElementById('nav-programme').textContent = data.navProgramme;
+            document.getElementById('nav-minds').textContent = data.navMinds;
+            document.getElementById('nav-register').textContent = data.navRegister;
+
+            // Translate Mobile Navigation Header Links
+            document.getElementById('mobile-nav-happening').textContent = data.navHappening;
+            document.getElementById('mobile-nav-programme').textContent = data.navProgramme;
+            document.getElementById('mobile-nav-minds').textContent = data.navMinds;
+            document.getElementById('mobile-nav-register').textContent = data.navRegister;
+
             const searchInput = document.getElementById('faq-search');
             searchInput.placeholder = data.searchPlaceholder;
 

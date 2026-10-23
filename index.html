@@ -237,7 +237,7 @@
     <!-- STICKY HEADER BANNER -->
     <div id="header-banner" class="sticky top-4 z-40 header-top mx-auto rounded-[2rem] bg-[#110729]/60 border border-white/20 px-5 py-3 md:px-10 md:py-3 shadow-2xl backdrop-blur-md mb-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <div class="flex items-center justify-between w-full">
-            <!-- English: Dubai Future [logo] Week / Arabic:  أسبوع [logo]دبي للمستقبل  -->
+            <!-- Dynamic English: Dubai Future [logo] Week / Arabic: أسبوع [logo] دبي للمستقبل -->
             <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
                 <span class="text-white font-medium text-lg md:text-xl tracking-tight flex items-center gap-[2px]">
                     <span id="logo-part-left">Dubai Future</span>
@@ -339,11 +339,11 @@
             <div class="text-center md:text-right rtl:md:text-left flex flex-wrap justify-center md:justify-end items-center gap-2">
                 <span><span id="footer-contact">Contact</span>: <a href="tel:8002071" style="color: #2563eb; font-weight: 500; text-decoration: none;">800 2071</a></span>
                 <span>•</span>
-                <a href="https://www.dubaifutureweek.com/en/event-terms" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Event Terms</a>
+                <a href="https://www.dubaifutureweek.com/en/event-terms" id="footer-terms" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Event Terms</a>
                 <span>•</span>
-                <a href="https://www.dubaifuture.ae/privacy-policy/" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Privacy Policy</a>
+                <a href="https://www.dubaifuture.ae/privacy-policy/" id="footer-privacy" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Privacy Policy</a>
                 <span>•</span>
-                <span>© 2026 Dubai Future Week. All rights reserved.</span>
+                <span id="footer-copyright">© 2026 Dubai Future Week. All rights reserved.</span>
             </div>
 
         </div>
@@ -364,6 +364,9 @@
                 navMinds: "500 Future Minds",
                 navRegister: "Register",
                 footerContact: "Contact",
+                footerTerms: "Event Terms",
+                footerPrivacy: "Privacy Policy",
+                footerCopyright: "© 2026 Dubai Future Week. All rights reserved.",
                 categories: [
                     {
                         title: "Registration and Access",
@@ -552,13 +555,16 @@
                 pageTitle: "أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة",
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
-                logoLeft: "دبي للمستقبل",
-                logoRight: "أسبوع",
+                logoLeft: "أسبوع",
+                logoRight: "دبي للمستقبل",
                 navHappening: "ماذا يحدث",
                 navProgramme: "البرنامج",
                 navMinds: "منصة مستقبل دبي",
                 navRegister: "التسجيل",
                 footerContact: "للتواصل",
+                footerTerms: "شروط الفعالية",
+                footerPrivacy: "سياسة الخصوصية",
+                footerCopyright: "© 2026 أسبوع دبي للمستقبل. جميع الحقوق محفوظة.",
                 categories: [
                     {
                         title: "التسجيل والدخول",
@@ -791,7 +797,12 @@
             document.getElementById('page-title').textContent = data.pageTitle;
             document.getElementById('language-label').textContent = data.languageLabel;
             document.getElementById('mobile-language-label').textContent = data.languageLabel;
+            
+            // Footer Translations
             document.getElementById('footer-contact').textContent = data.footerContact;
+            document.getElementById('footer-terms').textContent = data.footerTerms;
+            document.getElementById('footer-privacy').textContent = data.footerPrivacy;
+            document.getElementById('footer-copyright').textContent = data.footerCopyright;
             
             // Translate Dynamic Header Logo Parts
             document.getElementById('logo-part-left').textContent = data.logoLeft;

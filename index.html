@@ -7,7 +7,7 @@
     <title id="tab-title">Dubai Future Week 2026 FAQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -39,9 +39,9 @@
         }
 
         .category-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2.25rem;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             display: flex;
@@ -71,8 +71,8 @@
         }
 
         summary {
-            font-weight: 600;
-            font-size: 1.05rem;
+            font-weight: 500;
+            font-size: 1rem;
             padding: 1.1rem 1.75rem;
             cursor: pointer;
             color: #1e1b4b;
@@ -95,9 +95,9 @@
             right: 1.75rem;
             top: 50%;
             transform: translateY(-50%) rotate(0deg);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #6b7280;
-            font-weight: 400;
+            font-weight: 300;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
         }
 
@@ -112,9 +112,9 @@
             left: 1.75rem;
             top: 50%;
             transform: translateY(-50%) rotate(0deg);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #6b7280;
-            font-weight: 400;
+            font-weight: 300;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
         }
 
@@ -234,22 +234,22 @@
 </head>
 <body>
 
-    <!-- STICKY HEADER BANNER WITH SCROLL SHRINK ANIMATION -->
+    <!-- STICKY HEADER BANNER -->
     <div id="header-banner" class="sticky top-4 z-40 header-top mx-auto rounded-[2rem] bg-[#110729]/60 border border-white/20 px-5 py-3 md:px-10 md:py-3 shadow-2xl backdrop-blur-md mb-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <div class="flex items-center justify-between w-full">
-            <!-- Dynamic English / Arabic Branding with SVG Torus -->
+            <!-- English: Dubai Future [logo] Week / Arabic: دبي للمستقبل [logo] أسبوع -->
             <a href="https://www.dubaifutureweek.com/en" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity shrink-0">
-                <span class="text-white font-bold text-xl md:text-2xl tracking-tight flex items-center gap-[2px]">
-                    <span id="logo-part-left">DF</span>
-                    <svg class="h-5 md:h-6 w-auto inline-block text-white fill-current mx-[2px]" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
+                <span class="text-white font-medium text-lg md:text-xl tracking-tight flex items-center gap-[2px]">
+                    <span id="logo-part-left">Dubai Future</span>
+                    <svg class="h-4 md:h-5 w-auto inline-block text-white fill-current mx-[2px]" viewBox="203 0 221 111" xmlns="http://www.w3.org/2000/svg">
                         <path d="M346.74,83.03c-30.58,0-55.26-12.36-55.26-27.68s24.87-27.68,55.26-27.68,55.26,12.36,55.26,27.68-24.68,27.68-55.26,27.68M313.58,0c-61.15,0-110.7,24.72-110.7,55.35s49.55,55.35,110.7,55.35,110.7-24.91,110.7-55.35S374.55,0,313.58,0Z"/>
                     </svg>
-                    <span id="logo-part-right">W26</span>
+                    <span id="logo-part-right">Week</span>
                 </span>
             </a>
 
             <!-- Desktop Navigation Links -->
-            <div class="hidden md:flex items-center gap-8 text-white text-sm font-semibold">
+            <div class="hidden md:flex items-center gap-8 text-white text-sm font-medium">
                 <a href="https://www.dubaifutureweek.com/en/whats-happening" id="nav-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
                 <a href="https://www.dubaifutureweek.com/en/programme" id="nav-programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
                 <a href="https://www.dubaifutureweek.com/en/500-future-minds" id="nav-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
@@ -257,13 +257,13 @@
 
             <!-- Desktop Language & Register Action Buttons -->
             <div class="hidden md:flex items-center gap-3 shrink-0">
-                <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-medium text-sm transition-all active:scale-95 cursor-pointer">
+                <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-normal text-sm transition-all active:scale-95 cursor-pointer">
                     <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="18" alt="UAE Flag" class="rounded shadow-sm">
-                    <span id="language-label" class="font-semibold">العربية</span>
+                    <span id="language-label" class="font-medium">العربية</span>
                 </button>
 
                 <!-- Yellow Register Button -->
-                <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-sm flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+                <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-semibold px-4 py-1.5 rounded-full text-sm flex items-center gap-1.5 transition-all shadow-md active:scale-95">
                     <span id="nav-register">Register</span>
                     <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-4 h-4 text-[10px]">↗</span>
                 </a>
@@ -272,7 +272,7 @@
             <!-- Mobile 3 Stripes Hamburger Button -->
             <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation" class="md:hidden text-white focus:outline-none p-1.5 rounded-full hover:bg-white/10 transition">
                 <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
@@ -280,18 +280,18 @@
         <!-- Mobile Smooth Slide-Down Drawer Container -->
         <div id="mobile-menu-wrapper" class="mobile-menu-wrapper md:hidden">
             <div class="overflow-hidden">
-                <div class="flex flex-col gap-4 pt-6 pb-2 text-white text-base font-medium">
+                <div class="flex flex-col gap-4 pt-6 pb-2 text-white text-base font-normal">
                     <a href="https://www.dubaifutureweek.com/en/whats-happening" id="mobile-nav-happening" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">What's Happening</a>
                     <a href="https://www.dubaifutureweek.com/en/programme" id="mobile-nav-programme" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">Programme</a>
                     <a href="https://www.dubaifutureweek.com/en/500-future-minds" id="mobile-nav-minds" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 transition-colors">500 Future Minds</a>
                     
                     <div class="flex items-center justify-between pt-4 border-t border-white/15 mt-1">
-                        <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-medium text-xs transition-all active:scale-95 cursor-pointer">
+                        <button onclick="toggleLanguage()" class="lang-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-white font-normal text-xs transition-all active:scale-95 cursor-pointer">
                             <img src="https://flagcdn.com/w40/ae.png" srcset="https://flagcdn.com/w80/ae.png 2x" width="16" alt="UAE Flag" class="rounded shadow-sm">
-                            <span id="mobile-language-label" class="font-semibold">العربية</span>
+                            <span id="mobile-language-label" class="font-medium">العربية</span>
                         </button>
 
-                        <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+                        <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" class="bg-[#FEF08A] hover:bg-[#FDE047] text-slate-900 font-semibold px-4 py-1.5 rounded-full text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-95">
                             <span id="mobile-nav-register">Register</span>
                             <span class="bg-slate-900 text-white rounded-full p-0.5 flex items-center justify-center w-3.5 h-3.5 text-[9px]">↗</span>
                         </a>
@@ -305,14 +305,14 @@
     <div class="faq-container flex-1">
         <!-- SEARCH SECTION -->
         <div class="text-center text-white mb-10 mt-2 px-4">
-            <h1 id="page-title" class="text-3xl md:text-5xl font-black mb-6 tracking-tight drop-shadow-md">
+            <h1 id="page-title" class="text-2xl md:text-4xl font-semibold mb-6 tracking-tight drop-shadow-md">
                 Dubai Future Week (DFW 2026) – FAQs
             </h1>
             
             <div class="relative max-w-sm mx-auto">
-                <input type="text" id="faq-search" oninput="searchFaqs()" placeholder="Search questions..." class="w-full bg-white/80 backdrop-blur-md text-[#1e1b4b] rounded-full py-3 px-6 shadow-lg outline-none focus:ring-4 focus:ring-purple-500/50 transition font-medium border border-white/40">
+                <input type="text" id="faq-search" oninput="searchFaqs()" placeholder="Search questions..." class="w-full bg-white/80 backdrop-blur-md text-[#1e1b4b] rounded-full py-3 px-6 shadow-lg outline-none focus:ring-4 focus:ring-purple-500/50 transition font-normal border border-white/40">
                 <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 rtl:left-4 rtl:right-auto pointer-events-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
             </div>
         </div>
@@ -337,11 +337,11 @@
 
             <!-- Bottom Right Corner: Contact, Terms, Privacy, Copyright -->
             <div class="text-center md:text-right rtl:md:text-left flex flex-wrap justify-center md:justify-end items-center gap-2">
-                <span><span id="footer-contact">Contact</span>: <a href="tel:8002071" style="color: #2563eb; font-weight: 600; text-decoration: none;">800 2071</a></span>
+                <span><span id="footer-contact">Contact</span>: <a href="tel:8002071" style="color: #2563eb; font-weight: 500; text-decoration: none;">800 2071</a></span>
                 <span>•</span>
-                <a href="https://www.dubaifutureweek.com/en/event-terms" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium text-white/90">Event Terms</a>
+                <a href="https://www.dubaifutureweek.com/en/event-terms" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Event Terms</a>
                 <span>•</span>
-                <a href="https://www.dubaifuture.ae/privacy-policy/" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium text-white/90">Privacy Policy</a>
+                <a href="https://www.dubaifuture.ae/privacy-policy/" target="_blank" rel="noopener noreferrer" class="hover:underline font-normal text-white/90">Privacy Policy</a>
                 <span>•</span>
                 <span>© 2026 Dubai Future Week. All rights reserved.</span>
             </div>
@@ -357,8 +357,8 @@
                 pageTitle: "Dubai Future Week (DFW 2026) – FAQs",
                 searchPlaceholder: "Search questions...",
                 languageLabel: "العربية",
-                logoLeft: "DF",
-                logoRight: "W26",
+                logoLeft: "Dubai Future",
+                logoRight: "Week",
                 navHappening: "What's Happening",
                 navProgramme: "Programme",
                 navMinds: "500 Future Minds",
@@ -375,10 +375,10 @@
                                     <p><strong>For Media Representatives:</strong></p>
                                     <ul>
                                         <li>If the request is received within two weeks of the event, we will be unable to accommodate the media representative.</li>
-                                        <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance at <a href="mailto:media@dubaifutureweek.com" style="color: #2563eb; text-decoration: none; font-weight: 600;">media@dubaifutureweek.com</a> or <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: #2563eb; text-decoration: none; font-weight: 600;">saleem.stas@dubaifuture.gov.ae</a>.</li>
+                                        <li>If the request is received more than two weeks before the event, the guest should be directed to the Media Team for registration and further assistance at <a href="mailto:media@dubaifutureweek.com" style="color: #2563eb; text-decoration: none; font-weight: 500;">media@dubaifutureweek.com</a> or <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: #2563eb; text-decoration: none; font-weight: 500;">saleem.stas@dubaifuture.gov.ae</a>.</li>
                                     </ul>
                                     <p><strong>For General Attendees:</strong></p>
-                                    <p>Yes, you can register through the official <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none; font-weight: 600;">Dubai Future Week registration platform</a>. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
+                                    <p>Yes, you can register through the official <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none; font-weight: 500;">Dubai Future Week registration platform</a>. Once registration is completed successfully, you will receive a confirmation email and QR code for entry.</p>
                                 `
                             },
                             {
@@ -394,7 +394,7 @@
                             {
                                 id: "q4",
                                 question: "I registered but did not receive a confirmation email. What should I do?",
-                                answer: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 600; text-decoration: none;">here</a>.</p>`
+                                answer: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 500; text-decoration: none;">here</a>.</p>`
                             },
                             {
                                 id: "q5",
@@ -520,7 +520,7 @@
                             {
                                 id: "q20",
                                 question: "Can I collect my badge in advance?",
-                                answer: `<p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600; text-decoration: none;">Emirates Towers</a>.</p>`
+                                answer: `<p>Yes, you can collect your badge starting November 5 at the Registration Hub located at <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 500; text-decoration: none;">Emirates Towers</a>.</p>`
                             }
                         ]
                     },
@@ -540,7 +540,7 @@
                                 question: "Who can I contact if I have a complaint?",
                                 answer: `
                                     <p>Guests can contact the Customer Care Team through the designated Dubai Future Week contact channels.</p>
-                                    <p>Contact number: <a href="tel:8002071" style="color: #2563eb; font-weight: 700; text-decoration: none;">800 2071</a></p>
+                                    <p>Contact number: <a href="tel:8002071" style="color: #2563eb; font-weight: 600; text-decoration: none;">800 2071</a></p>
                                 `
                             }
                         ]
@@ -552,8 +552,8 @@
                 pageTitle: "أسبوع دبي للمستقبل (DFW 2026) – الأسئلة الشائعة",
                 searchPlaceholder: "...البحث عن الأسئلة الشائعة",
                 languageLabel: "English",
-                logoLeft: "أسبوع",
-                logoRight: "دبي للمستقبل",
+                logoLeft: "دبي للمستقبل",
+                logoRight: "أسبوع",
                 navHappening: "ماذا يحدث",
                 navProgramme: "البرنامج",
                 navMinds: "منصة مستقبل دبي",
@@ -570,10 +570,10 @@
                                     <p><strong>لممثلي وسائل الإعلام:</strong></p>
                                     <ul>
                                         <li>إذا تم استلام الطلب خلال أسبوعين من الفعالية، فلن نتمكن من تسجيل ممثل الإعلام.</li>
-                                        <li>إذا تم استلام الطلب قبل أكثر من أسبوعين من الفعالية، فيجب توجيه الضيف إلى الفريق الإعلامي للتسجيل وتقديم المساعدة اللازمة عبر البريد الإلكتروني <a href="mailto:media@dubaifutureweek.com" style="color: #2563eb; text-decoration: none; font-weight: 600;">media@dubaifutureweek.com</a> أو <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: #2563eb; text-decoration: none; font-weight: 600;">saleem.stas@dubaifuture.gov.ae</a>.</li>
+                                        <li>إذا تم استلام الطلب قبل أكثر من أسبوعين من الفعالية، فيجب توجيه الضيف إلى الفريق الإعلامي للتسجيل وتقديم المساعدة اللازمة عبر البريد الإلكتروني <a href="mailto:media@dubaifutureweek.com" style="color: #2563eb; text-decoration: none; font-weight: 500;">media@dubaifutureweek.com</a> أو <a href="mailto:saleem.stas@dubaifuture.gov.ae" style="color: #2563eb; text-decoration: none; font-weight: 500;">saleem.stas@dubaifuture.gov.ae</a>.</li>
                                     </ul>
                                     <p><strong>للحضور العام:</strong></p>
-                                    <p>نعم، يمكنك التسجيل عبر <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none; font-weight: 600;">منصة التسجيل الرسمية لأسبوع دبي للمستقبل</a>. بمجرد إتمام التسجيل بنجاح، ستتلقى رسالة تأكيد إلكترونية تحتوي على رمز الاستجابة السريعة (QR Code) الخاص بالدخول.</p>
+                                    <p>نعم، يمكنك التسجيل عبر <a href="https://www.dubaifutureweek.com/en#register" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: none; font-weight: 500;">منصة التسجيل الرسمية لأسبوع دبي للمستقبل</a>. بمجرد إتمام التسجيل بنجاح، ستتلقى رسالة تأكيد إلكترونية تحتوي على رمز الاستجابة السريعة (QR Code) الخاص بالدخول.</p>
                                 `
                             },
                             {
@@ -589,7 +589,7 @@
                             {
                                 id: "q4",
                                 question: "لقد سجلت ولكني لم أتلق رسالة تأكيد إلكترونية. ماذا علي أن أفعل؟",
-                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 600; text-decoration: none;">من هنا</a>.</p>`
+                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 500; text-decoration: none;">من هنا</a>.</p>`
                             },
                             {
                                 id: "q5",
@@ -715,7 +715,7 @@
                             {
                                 id: "q20",
                                 question: "هل يمكنني استلام بطاقة الدخول الخاصة بي مسبقاً؟",
-                                answer: `<p>نعم، يمكنك استلام بطاقتك اعتباراً من ٥ نوفمبر من مركز التسجيل الواقع في <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 600; text-decoration: none;">أبراج الإمارات</a>.</p>`
+                                answer: `<p>نعم، يمكنك استلام بطاقتك اعتباراً من ٥ نوفمبر من مركز التسجيل الواقع في <a href="https://maps.app.goo.gl/LMHe39Yjg4CYT1sy9" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-weight: 500; text-decoration: none;">أبراج الإمارات</a>.</p>`
                             }
                         ]
                     },
@@ -735,7 +735,7 @@
                                 question: "بمن يمكنني الاتصال لتقديم شكوى أو استفسار؟",
                                 answer: `
                                     <p>يمكن للضيوف التواصل مع فريق خدمة العملاء من خلال قنوات الاتصال المخصصة لأسبوع دبي للمستقبل.</p>
-                                    <p>رقم الاتصال: <a href="tel:8002071" style="color: #2563eb; font-weight: 700; text-decoration: none;">800 2071</a></p>
+                                    <p>رقم الاتصال: <a href="tel:8002071" style="color: #2563eb; font-weight: 600; text-decoration: none;">800 2071</a></p>
                                 `
                             }
                         ]
@@ -817,7 +817,7 @@
 
             data.categories.forEach((cat, catIdx) => {
                 const catHeader = document.createElement('h2');
-                catHeader.className = 'category-title text-white border-b-2 border-white/20 pb-2 mt-10 mb-4 font-bold drop-shadow-md';
+                catHeader.className = 'category-title text-white border-b border-white/20 pb-2 mt-8 mb-4 font-semibold drop-shadow-md';
                 catHeader.id = `cat-${catIdx}`;
                 catHeader.textContent = cat.title;
                 faqListContainer.appendChild(catHeader);
@@ -831,7 +831,7 @@
                     detailEl.id = item.id;
 
                     const summaryEl = document.createElement('summary');
-                    summaryEl.className = 'font-semibold cursor-pointer text-[#110729]';
+                    summaryEl.className = 'font-medium cursor-pointer text-[#110729]';
                     summaryEl.textContent = item.question;
 
                     const wrapperDiv = document.createElement('div');

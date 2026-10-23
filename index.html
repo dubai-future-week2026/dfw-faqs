@@ -49,24 +49,19 @@
             gap: 0.5rem;
         }
 
-        /* ULTRA-SMOOTH SPHERICAL QUESTION PILLS */
+        /* FIXED PILL CONTAINERS (NO MORPHING/SHAPE CHANGING) */
         details {
             background-color: rgba(255, 255, 255, 0.80);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 9999px;
+            border-radius: 1.25rem; /* Fixed pill radius so shape doesn't shift */
             margin-bottom: 0.85rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             backdrop-filter: blur(8px);
-            transition: border-radius 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-                        background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-                        box-shadow 0.25s ease-in-out, 
-                        transform 0.25s ease-in-out;
+            transition: background-color 0.3s ease, box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
             overflow: hidden;
-            will-change: transform, border-radius;
         }
 
         details[open] {
-            border-radius: 1.5rem;
             background-color: rgba(255, 255, 255, 0.88);
         }
 
@@ -78,13 +73,13 @@
         summary {
             font-weight: 600;
             font-size: 1.05rem;
-            padding: 1rem 1.75rem;
+            padding: 1.1rem 1.75rem;
             cursor: pointer;
             color: #1e1b4b;
             list-style: none;
             position: relative;
             outline: none;
-            border-radius: 9999px;
+            border-radius: 1.25rem;
             transition: background-color 0.2s ease;
             user-select: none;
         }
@@ -93,7 +88,7 @@
             display: none;
         }
 
-        /* SMOOTH ROTATING ICON */
+        /* PLUS/MINUS ROTATION */
         #html-root:not([dir="rtl"]) summary::after {
             content: '+';
             position: absolute;
@@ -128,32 +123,33 @@
             color: #110729;
         }
 
-        /* SMOOTH HEIGHT & FADE EXPANSION ANIMATION */
+        /* SMOOTH SCROLL SLIDE-DOWN EXPANSION */
         .faq-wrapper {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); /* Smooth downward expansion */
         }
 
         details[open] .faq-wrapper {
-            grid-template-rows: 1fr;
+            max-height: 1000px; /* High threshold for smooth vertical unfolding */
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-content {
-            overflow: hidden;
-            padding: 0 1.75rem;
+            padding: 0.5rem 1.75rem 1.25rem 1.75rem;
             color: #374151;
             line-height: 1.625;
             font-size: 0.95rem;
-            opacity: 0;
-            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        details[open] .faq-content {
-            opacity: 1;
-            padding: 0.5rem 1.75rem 1.25rem 1.75rem;
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             margin-top: 0.25rem;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        details[open] .faq-content {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .faq-content p {
@@ -615,7 +611,7 @@
                             {
                                 id: "q12",
                                 question: "س١٢. ما هي تواريخ وأوقات الفعالية؟",
-                                answer: `<p>سيقام أسبوع دبي للمستقبل من ١٨ إلى ٢١ نوفمبر، من الساعة ٩:٠٠ صباحاً حتى ١٠:٠٠ مساءً يومياً، باستثناء اليوم الأخير (٢١ نوفمبر) حيث يختتم الحدث أعماله في الساعة ٨:٠٠ مساءً.</p>`
+                                answer: `<p>سيقام أسبوع دبي للمستقبل من ١٨ إلى ٢١ نوفمبر، من الساعة ٩:٠0 صباحاً حتى ١٠:٠٠ مساءً يومياً، باستثناء اليوم الأخير (٢١ نوفمبر) حيث يختتم الحدث أعماله في الساعة ٨:٠0 مساءً.</p>`
                             },
                             {
                                 id: "q13",

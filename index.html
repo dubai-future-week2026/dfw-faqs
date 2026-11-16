@@ -358,6 +358,15 @@
 
     <!-- JS Logic -->
     <script>
+        function copyEmail(el, copiedText) {
+            const email = 'Mouayad.aljamee@aimedialab.ae';
+            navigator.clipboard.writeText(email);
+            el.textContent = copiedText;
+            setTimeout(() => {
+                el.textContent = email;
+            }, 1500);
+        }
+
         const faqsData = {
             en: {
                 tabTitle: "Dubai Future Week 2026 FAQ",
@@ -404,15 +413,7 @@
                             {
                                 id: "q4",
                                 question: "I registered but did not receive a confirmation email. What should I do?",
-                                answer: `<p>
-  Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team at 
-  <span 
-    onclick="navigator.clipboard.writeText('Mouayad.aljamee@aimedialab.ae'); const el = this; el.textContent = 'Copied!'; setTimeout(() => el.textContent = 'Mouayad.aljamee@aimedialab.ae', 1500);" 
-    title="Click to copy"
-    style="color: #2563eb; font-weight: 500; cursor: pointer;"
-  >Mouayad.aljamee@aimedialab.ae</span>.
-</p>
-
+                                answer: `<p>Please check your junk or spam folder first. If the confirmation email is still missing, complete the registration process again and ensure that you enter the correct email address. If the issue persists, you can reach out to the concerned team at <span onclick="copyEmail(this, 'Copied!')" oncopy="copyEmail(this, 'Copied!')" title="Click to copy" style="color: #2563eb; font-weight: 500; cursor: pointer;">Mouayad.aljamee@aimedialab.ae</span>.</p>`
                             },
                             {
                                 id: "q5",
@@ -610,7 +611,7 @@
                             {
                                 id: "q4",
                                 question: "لقد سجلت ولكني لم أتلق رسالة تأكيد إلكترونية. ماذا علي أن أفعل؟",
-                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني <a href="mailto:Mouayad.aljamee@aimedialab.ae" style="color: #2563eb; font-weight: 500; text-decoration: none;">من هنا</a>.</p>`
+                                answer: `<p>يرجى التحقق من مجلد البريد العشوائي (Spam) أولاً. إذا كانت رسالة التأكيد لا تزال مفقودة، يرجى إعادة عملية التسجيل مرة أخرى والتأكد من إدخال البريد الإلكتروني الصحيح. إذا استمرت المشكلة، يمكنك التواصل مع الفريق المعني عبر <span dir="ltr" onclick="copyEmail(this, 'تم النسخ!')" oncopy="copyEmail(this, 'تم النسخ!')" title="انقر للنسخ" style="color: #2563eb; font-weight: 500; cursor: pointer;">Mouayad.aljamee@aimedialab.ae</span>.</p>`
                             },
                             {
                                 id: "q5",
